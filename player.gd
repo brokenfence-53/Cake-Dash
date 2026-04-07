@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@onready var CoyoteTimer : Timer 
-@onready var JumpBufferTimer : Timer 
-@onready var AnimationSprite : AnimatedSprite2D 
-@onready var JumpSFX : AudioStreamPlayer 
+@onready var CoyoteTimer : Timer = $CoyoteTimer
+@onready var JumpBufferTimer : Timer = $JumpBufferTimer
+@onready var AnimationSprite : Sprite2D = $PlayerSprite
+@onready var JumpSFX : AudioStreamPlayer = $JumpSFX
 
 var coyote_time_activated : bool = false
 
@@ -11,7 +11,7 @@ const jump_height : float = -500.0
 var gravity : float = 8.0
 const max_gravity : float = 18.0
 
-const max_speed : float = 900
+const max_speed : float = 500
 const acceleration : float = 12
 const friction : float = 14
 var jumps_left : int = 0
