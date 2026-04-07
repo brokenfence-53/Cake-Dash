@@ -64,6 +64,7 @@ size = Vector2(58, 56)
 size = Vector2(58, 47)
 
 [node name="Player" type="CharacterBody2D" unique_id=1809104038 groups=["player"]]
+collision_mask = 63
 script = ExtResource("1_yewv4")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1473506797]
@@ -79,6 +80,7 @@ position = Vector2(-1, 8)
 shape = SubResource("RectangleShape2D_cxr5p")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1895442022]
+collision_mask = 58
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1730151378]
 visible = false
