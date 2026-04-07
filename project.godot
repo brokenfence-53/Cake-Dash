@@ -15,6 +15,10 @@ run/main_scene="uid://wern5rf24qfr"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://b52k6225s06rt"
+
 [input]
 
 right={
@@ -39,4 +43,5 @@ up={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

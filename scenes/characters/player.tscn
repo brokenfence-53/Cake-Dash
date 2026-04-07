@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://di10eb247rhor"]
 
-[ext_resource type="Script" uid="uid://bfry6bl17sqn7" path="res://player.gd" id="1_xhfnw"]
-[ext_resource type="Texture2D" uid="uid://2vi7mc27numf" path="res://sprites/sidleplayer/Derp.png" id="2_kpjcp"]
+[ext_resource type="Script" uid="uid://bfry6bl17sqn7" path="res://scripts/behaviors/player.gd" id="1_yewv4"]
+[ext_resource type="Texture2D" uid="uid://2vi7mc27numf" path="res://sprites/sidleplayer/Derp.png" id="2_76oj4"]
 
 [sub_resource type="Animation" id="Animation_e80uo"]
 length = 0.001
@@ -63,11 +63,11 @@ size = Vector2(58, 56)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdg3f"]
 size = Vector2(58, 47)
 
-[node name="Player" type="CharacterBody2D" unique_id=1809104038]
-script = ExtResource("1_xhfnw")
+[node name="Player" type="CharacterBody2D" unique_id=1809104038 groups=["player"]]
+script = ExtResource("1_yewv4")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1473506797]
-texture = ExtResource("2_kpjcp")
+texture = ExtResource("2_76oj4")
 hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=888334291]
