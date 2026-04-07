@@ -2,68 +2,11 @@
 [gd_scene format=3 uid="uid://o7rv7cb45u27"]
 
 [ext_resource type="Script" uid="uid://bfry6bl17sqn7" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://deb4dwk4ym28c" path="res://sprites/sidleplayer/layers/Derp.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5q5h1"]
-size = Vector2(58, 56)
-
-[sub_resource type="Animation" id="Animation_i3pqv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_onrkg"]
-resource_name = "idle"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_hqtel"]
-resource_name = "walk"
-length = 1.2
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sweqy"]
-_data = {
-&"RESET": SubResource("Animation_i3pqv"),
-&"idle": SubResource("Animation_onrkg"),
-&"walk": SubResource("Animation_hqtel")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vlq"]
+<<<<<<< HEAD
 size = Vector2(58, 48)
 =======
 [gd_scene format=3 uid="uid://di10eb247rhor"]
@@ -74,22 +17,26 @@ size = Vector2(58, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vlq"]
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 9c24d0d (Player Logic Update)
 
 [node name="Player" type="CharacterBody2D" unique_id=597647240 groups=["Player"]]
 script = ExtResource("1_4flbx")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=891345360]
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 position = Vector2(0, 1)
 texture = ExtResource("2_onrkg")
 hframes = 3
+=======
+>>>>>>> parent of 9c24d0d (Player Logic Update)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=702695299]
-visible = false
-position = Vector2(-1, 9)
 shape = SubResource("RectangleShape2D_5q5h1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1192014384]
+<<<<<<< HEAD
 libraries/ = SubResource("AnimationLibrary_sweqy")
 =======
 
@@ -98,10 +45,13 @@ shape = SubResource("RectangleShape2D_5q5h1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1192014384]
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 9c24d0d (Player Logic Update)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=225874928]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=249449836]
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 visible = false
 position = Vector2(-1, 5)
@@ -116,3 +66,6 @@ wait_time = 0.12
 =======
 shape = SubResource("RectangleShape2D_p0vlq")
 >>>>>>> Stashed changes
+=======
+shape = SubResource("RectangleShape2D_p0vlq")
+>>>>>>> parent of 9c24d0d (Player Logic Update)

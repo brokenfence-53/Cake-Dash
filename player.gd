@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
-@onready var CoyoteTimer : Timer = $CoyoteTimer
-@onready var JumpBufferTimer : Timer = $JumpBufferTimer
-@onready var PlayerSprite : Sprite2D =  $PlayerSprite
-@onready var JumpSFX : AudioStreamPlayer = $JumpSFX
-@onready var anim : AnimationPlayer = $AnimationPlayer
+@onready var CoyoteTimer : Timer 
+@onready var JumpBufferTimer : Timer 
+@onready var AnimationSprite : AnimatedSprite2D 
+@onready var JumpSFX : AudioStreamPlayer 
 
 var coyote_time_activated : bool = false
 
@@ -18,16 +17,13 @@ const friction : float = 14
 var jumps_left : int = 0
 const total_jumps : int = 2
 
-func _ready() -> void:
-	anim.play("walk")
-
 func _physics_process(delta : float) -> void:
 	var x_input : float = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var velocity_weight : float = delta * (acceleration if x_input else friction)
 	velocity.x = lerp(velocity.x, x_input * max_speed, velocity_weight)
 
 	if x_input != 0:
-		PlayerSprite.flip_h = x_input < 0
+		AnimationSprite.flip_h = x_input < 0
 
 	if is_on_floor():
 		coyote_time_activated = false
