@@ -8,3 +8,5 @@
 position = Vector2(176, 328)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1922037960]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
