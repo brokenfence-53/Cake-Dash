@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cg1ls52ilbxyp" path="res://tilesets/TileSet1/Purple Square Tile.png" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://brrmp3vgyo2q8" path="res://tilesets/TileSet1/Purple Background.png" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://di10eb247rhor" path="res://scenes/characters/player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://couccyopqsqa1" path="res://tilesets/TileSet1/Big Mountains.png" id="4_1bvp3"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h2yge"]
 polygon = PackedVector2Array(-8, 8, 8, 8, 8, -4, -8, -4)
@@ -154,3 +155,14 @@ color = Color(0.47407097, 0.25692245, 0.6594481, 1)
 color = Color(1, 0.5764706, 1, 1)
 energy = 0.9
 shadow_enabled = true
+
+[node name="Foreground" type="Parallax2D" parent="." unique_id=267732187]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(962, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Foreground" unique_id=1216112388]
+modulate = Color(0.52156866, 0.14117648, 0.89411765, 0.4745098)
+self_modulate = Color(0.4862745, 0.07450981, 0.8862745, 1)
+position = Vector2(480, 640)
+scale = Vector2(2, 2)
+texture = ExtResource("4_1bvp3")
