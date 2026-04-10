@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dds655ytmo1rk"]
+
+[ext_resource type="Script" uid="uid://bru53tegvuati" path="res://scripts/UI/pause.gd" id="1_uknf6"]
+[ext_resource type="FontFile" uid="uid://c0fklx0xeqava" path="res://fonts/pixel_digivolve/Pixel Digivolve Italic.otf" id="2_7v8an"]
+[ext_resource type="FontFile" uid="uid://cbfmk4eirm712" path="res://fonts/pixelmix/pixelmix.ttf" id="3_5c1lp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dejis"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1859713366]
+process_mode = 3
+script = ExtResource("1_uknf6")
+
+[node name="Background" type="ColorRect" parent="." unique_id=800351534]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4392157)
+
+[node name="Title" type="Label" parent="." unique_id=1672975500]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.0
+offset_top = 90.0
+offset_right = 135.0
+offset_bottom = 186.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_7v8an")
+theme_override_font_sizes/font_size = 70
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=528987115]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume" type="Button" parent="VBoxContainer" unique_id=1718029546]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5c1lp")
+theme_override_font_sizes/font_size = 40
+text = " RESUME "
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=357172937]
+layout_mode = 2
+theme_override_constants/separation = 30
+theme_override_styles/separator = SubResource("StyleBoxEmpty_dejis")
+
+[node name="menu" type="Button" parent="VBoxContainer" unique_id=637800363]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5c1lp")
+theme_override_font_sizes/font_size = 40
+text = "MENU"
+
+[connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/menu" to="." method="_on_menu_pressed"]

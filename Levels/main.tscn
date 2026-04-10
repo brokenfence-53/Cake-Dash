@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://brrmp3vgyo2q8" path="res://tilesets/TileSet1/Purple Background.png" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://couccyopqsqa1" path="res://tilesets/TileSet1/Big Mountains.png" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://di10eb247rhor" path="res://scenes/characters/player.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dds655ytmo1rk" path="res://scenes/menus/pause menu.tscn" id="6_34bfm"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h2yge"]
 polygon = PackedVector2Array(-8, 8, 8, 8, 8, -4, -8, -4)
@@ -200,5 +201,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_272bh")
 text = "Main Menu
 "
 alignment = 0
+
+[node name="PauseMenu" parent="." unique_id=1859713366 instance=ExtResource("6_34bfm")]
+visible = false
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/Main Menu" to="." method="_on_main_menu_pressed"]
