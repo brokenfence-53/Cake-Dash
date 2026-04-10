@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://0rgql7phuv55"
-path="res://.godot/imported/Braaap_S2.otf-380ac8980f2080dcbd567e2ecaa7090c.fontdata"
+uid="uid://c0fklx0xeqava"
+path="res://.godot/imported/Pixel Digivolve Italic.otf-90b66420781401c04c9602f31ed5a096.fontdata"
 
 [deps]
 
-source_file="res://fonts/Braaap_S2.otf"
-dest_files=["res://.godot/imported/Braaap_S2.otf-380ac8980f2080dcbd567e2ecaa7090c.fontdata"]
+source_file="res://fonts/pixel_digivolve/Pixel Digivolve Italic.otf"
+dest_files=["res://.godot/imported/Pixel Digivolve Italic.otf-90b66420781401c04c9602f31ed5a096.fontdata"]
 
 [params]
 
