@@ -2,9 +2,38 @@
 
 [ext_resource type="Script" uid="uid://bfry6bl17sqn7" path="res://scripts/behaviors/player.gd" id="1_yewv4"]
 [ext_resource type="Texture2D" uid="uid://2vi7mc27numf" path="res://sprites/sidleplayer/Derp.png" id="2_76oj4"]
+[ext_resource type="AudioStream" uid="uid://78dlblu1bmo" path="res://audio/sfx/jump_sfx.wav" id="3_76oj4"]
+[ext_resource type="AudioStream" uid="uid://bac21o7mwgwks" path="res://audio/sfx/ouch_sfx.wav" id="4_dyp2m"]
 
 [sub_resource type="Animation" id="Animation_e80uo"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_76oj4"]
+resource_name = "fall"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -33,6 +62,35 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_yewv4"]
+resource_name = "jump"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.75), Vector2(1, 1.15), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
 [sub_resource type="Animation" id="Animation_kne1u"]
 resource_name = "walk"
 length = 0.9
@@ -53,7 +111,9 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e80uo"]
 _data = {
 &"RESET": SubResource("Animation_e80uo"),
+&"fall": SubResource("Animation_76oj4"),
 &"idle": SubResource("Animation_kpjcp"),
+&"jump": SubResource("Animation_yewv4"),
 &"walk": SubResource("Animation_kne1u")
 }
 
@@ -82,6 +142,7 @@ hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=888334291]
 libraries/ = SubResource("AnimationLibrary_e80uo")
+speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=809452932]
 visible = false
@@ -102,6 +163,12 @@ shape = SubResource("RectangleShape2D_tdg3f")
 wait_time = 0.12
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="." unique_id=744457995]
+stream = ExtResource("3_76oj4")
+bus = &"SFX"
+
+[node name="HurtSFX" type="AudioStreamPlayer" parent="." unique_id=1883411486]
+stream = ExtResource("4_dyp2m")
+bus = &"SFX"
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=631548895]
 position = Vector2(-2, 0)
