@@ -28,12 +28,15 @@ func _physics_process(delta : float) -> void:
 	if is_on_floor():
 		coyote_time_activated = false
 		jumps_left = total_jumps
-		
-	if jumps_left > 0 and velocity.y >= 0.0:
+
+	if jumps_left > 0:
 		if Input.is_action_just_pressed("up"):
 			velocity.y = jump_height
 			jumps_left -= 1
-			
+			JumpBufferTimer.stop()
+			CoyoteTimer.stop()
+			coyote_time_activated = true
+
 		gravity = lerp(gravity, 12.0, 12.0 * delta)
 	else:
 		if CoyoteTimer.is_stopped() and !coyote_time_activated:
@@ -49,8 +52,14 @@ func _physics_process(delta : float) -> void:
 		if JumpBufferTimer.is_stopped():
 			JumpBufferTimer.start()
 
-	if !JumpBufferTimer.is_stopped() and (!CoyoteTimer.is_stopped() or is_on_floor()):
+	# FIXED: buffer only fires when NOT on floor
+	if !JumpBufferTimer.is_stopped() \
+	and jumps_left == total_jumps \
+	and !is_on_floor() \
+	and !CoyoteTimer.is_stopped():
+
 		velocity.y = jump_height
+		jumps_left -= 1
 		JumpBufferTimer.stop()
 		CoyoteTimer.stop()
 		coyote_time_activated = true
