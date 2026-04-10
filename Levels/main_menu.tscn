@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://cwhsqodqy2ycg" path="res://Levels/main_menu.gd" id="1_6ucrw"]
 [ext_resource type="FontFile" uid="uid://biby56v28klek" path="res://fonts/pixel_digivolve/Pixel Digivolve.otf" id="2_8md67"]
 [ext_resource type="Texture2D" uid="uid://doiqh7ufivj2c" path="res://sprites/Moutains(BG)/8eacdc44-b4d4-4d10-b4e9-c615f4be71a6.png" id="2_jy27m"]
-[ext_resource type="AudioStream" uid="uid://busck6phxx7b1" path="res://audio/sfx/hover_sfx.wav" id="4_15p6s"]
-[ext_resource type="AudioStream" uid="uid://djj0its488u0r" path="res://audio/sfx/select_sfx.wav" id="5_5qvx8"]
 [ext_resource type="FontFile" uid="uid://cbfmk4eirm712" path="res://fonts/pixelmix/pixelmix.ttf" id="3_15p6s"]
+[ext_resource type="AudioStream" uid="uid://busck6phxx7b1" path="res://audio/sfx/hover_sfx.wav" id="4_15p6s"]
+[ext_resource type="Script" uid="uid://cdntbqr76ymv" path="res://scripts/UI/anim button.gd" id="4_hllw6"]
+[ext_resource type="AudioStream" uid="uid://djj0its488u0r" path="res://audio/sfx/select_sfx.wav" id="5_5qvx8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -86,6 +87,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
 text = "Continue"
 alignment = 0
+script = ExtResource("4_hllw6")
 
 [node name="New Game" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1535824841]
 layout_mode = 2
@@ -101,6 +103,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
 text = "New Game"
 alignment = 0
+script = ExtResource("4_hllw6")
 
 [node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=415322265]
 layout_mode = 2
@@ -116,6 +119,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
 text = "Quit"
 alignment = 0
+script = ExtResource("4_hllw6")
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer" unique_id=269247307]
 layout_mode = 2

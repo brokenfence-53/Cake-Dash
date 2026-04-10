@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bru53tegvuati" path="res://scripts/UI/pause.gd" id="1_uknf6"]
 [ext_resource type="FontFile" uid="uid://c0fklx0xeqava" path="res://fonts/pixel_digivolve/Pixel Digivolve Italic.otf" id="2_7v8an"]
 [ext_resource type="FontFile" uid="uid://cbfmk4eirm712" path="res://fonts/pixelmix/pixelmix.ttf" id="3_5c1lp"]
+[ext_resource type="Script" uid="uid://cdntbqr76ymv" path="res://scripts/UI/anim button.gd" id="4_7v8an"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dejis"]
 
@@ -50,6 +51,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_5c1lp")
 theme_override_font_sizes/font_size = 40
 text = " RESUME "
+script = ExtResource("4_7v8an")
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=357172937]
 layout_mode = 2
@@ -61,6 +63,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_5c1lp")
 theme_override_font_sizes/font_size = 40
 text = "MENU"
+script = ExtResource("4_7v8an")
 
 [connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/menu" to="." method="_on_menu_pressed"]
