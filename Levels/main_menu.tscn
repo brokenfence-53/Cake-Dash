@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cmv0d1vbomjwe"]
 
-[ext_resource type="Script" uid="uid://cwhsqodqy2ycg" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://cwhsqodqy2ycg" path="res://Levels/main_menu.gd" id="1_6ucrw"]
+[ext_resource type="FontFile" uid="uid://0rgql7phuv55" path="res://fonts/Braaap_S2.otf" id="2_3es34"]
+[ext_resource type="Texture2D" uid="uid://doiqh7ufivj2c" path="res://sprites/Moutains(BG)/8eacdc44-b4d4-4d10-b4e9-c615f4be71a6.png" id="2_jy27m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -21,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_06t4h")
+script = ExtResource("1_6ucrw")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1716254751]
 anchor_mode = 0
@@ -32,8 +34,8 @@ rotation_smoothing_enabled = true
 layout_mode = 0
 offset_right = 1922.0
 offset_bottom = 1079.0
-theme_override_constants/margin_left = 120
-theme_override_constants/margin_top = 80
+theme_override_constants/margin_left = 140
+theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
 
@@ -45,8 +47,14 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1986839159]
 layout_mode = 2
-theme_override_font_sizes/font_size = 256
-text = "Title"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5254902)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_3es34")
+theme_override_font_sizes/font_size = 128
+text = "Cake Dash
+"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1621042491]
 layout_mode = 2
@@ -58,12 +66,15 @@ text = "1111111111"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=527880369]
 layout_mode = 2
+theme_override_constants/separation = 55
 
 [node name="Continue" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2063742510]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.7764706)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5254902)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
@@ -76,6 +87,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.7764706)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5254902)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
@@ -88,6 +101,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.7764706)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5254902)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
@@ -98,3 +113,20 @@ alignment = 0
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer" unique_id=269247307]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Background" type="Node2D" parent="." unique_id=2009166050]
+z_index = -1
+
+[node name="Parallax2D" type="Parallax2D" parent="Background" unique_id=1603064453]
+texture_filter = 1
+repeat_size = Vector2(2779, 1750)
+autoscroll = Vector2(100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D" unique_id=1675508813]
+position = Vector2(-104, -416)
+texture = ExtResource("2_jy27m")
+centered = false
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
