@@ -21,7 +21,9 @@ buses/default_bus_layout="uid://b52k6225s06rt"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
 
 [input]
 
