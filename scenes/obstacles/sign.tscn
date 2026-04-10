@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://vxrtqoeo60fv"]
+
+[ext_resource type="Texture2D" uid="uid://dlrwrh1yw1uvk" path="res://sprites/Tables/Sign2.png" id="1_65nah"]
+[ext_resource type="Script" uid="uid://bpmspwwrci4j4" path="res://scripts/classes/interaction_area.gd" id="2_v4qs8"]
+[ext_resource type="Shader" uid="uid://cexuk2qm3vc40" path="res://scripts/shaders/bounce.gdshader" id="3_6utpg"]
+[ext_resource type="Texture2D" uid="uid://co2y22vburan" path="res://sprites/TextBox/Purple Controls Popup.png" id="4_v4qs8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvrsd"]
+radius = 96.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjjtn"]
+shader = ExtResource("3_6utpg")
+shader_parameter/do_abs = false
+shader_parameter/do_quantize = false
+shader_parameter/quantize_to = 1.0
+shader_parameter/sine_amplitude = Vector2(5, 5)
+shader_parameter/sine_speed = Vector2(0, 5)
+shader_parameter/sine_phase = Vector2(0, 0)
+
+[node name="Sign" type="Sprite2D" unique_id=1570586105]
+scale = Vector2(2, 2)
+texture = ExtResource("1_65nah")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1350960284]
+script = ExtResource("2_v4qs8")
+metadata/_custom_type_script = "uid://bpmspwwrci4j4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1668442131]
+visible = false
+shape = SubResource("CircleShape2D_mvrsd")
+
+[node name="Sprite2D" type="Sprite2D" parent="InteractionArea" unique_id=1569833885]
+material = SubResource("ShaderMaterial_yjjtn")
+position = Vector2(-2, -64)
+texture = ExtResource("4_v4qs8")
+
+[connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]
