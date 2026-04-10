@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://xdb5uyqgcpdd"]
+
+[ext_resource type="Script" uid="uid://ce4t6bjgm0dgo" path="res://Levels/level_1.gd" id="1_n0qsc"]
+[ext_resource type="Texture2D" uid="uid://naf46xfnjrke" path="res://sprites/Purple Background/download.png" id="2_dilhk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0qsc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dilhk"]
+bg_color = Color(0.19215687, 0.19215687, 0.19215687, 0.5058824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mhv4"]
+bg_color = Color(0.19076231, 0.19076234, 0.19076222, 0.5058824)
+shadow_color = Color(0, 0, 0, 0)
+
+[node name="Level 1" type="Node2D" unique_id=432619475]
+script = ExtResource("1_n0qsc")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1806573698]
+anchor_mode = 0
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2087627042]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Main Menu" type="Button" parent="CenterContainer" unique_id=1892275658]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.7764706)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_n0qsc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dilhk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3mhv4")
+text = "Main Menu"
+alignment = 0
+
+[node name="Background" type="Node2D" parent="." unique_id=54366811]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1099161394]
+position = Vector2(2048, 0)
+rotation = 1.5707964
+texture = ExtResource("2_dilhk")
+centered = false
+
+[connection signal="pressed" from="CenterContainer/Main Menu" to="." method="_on_main_menu_pressed"]
