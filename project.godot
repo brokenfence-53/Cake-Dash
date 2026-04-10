@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Cake Dash"
-run/main_scene="uid://bwkssa0vrdl4r"
+run/main_scene="uid://cmv0d1vbomjwe"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,8 +21,7 @@ buses/default_bus_layout="uid://b52k6225s06rt"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [input]

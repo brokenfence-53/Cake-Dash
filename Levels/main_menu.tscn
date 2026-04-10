@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cwhsqodqy2ycg" path="res://Levels/main_menu.gd" id="1_6ucrw"]
 [ext_resource type="FontFile" uid="uid://0rgql7phuv55" path="res://fonts/Braaap_S2.otf" id="2_3es34"]
 [ext_resource type="Texture2D" uid="uid://doiqh7ufivj2c" path="res://sprites/Moutains(BG)/8eacdc44-b4d4-4d10-b4e9-c615f4be71a6.png" id="2_jy27m"]
+[ext_resource type="AudioStream" uid="uid://busck6phxx7b1" path="res://audio/sfx/hover_sfx.wav" id="4_15p6s"]
+[ext_resource type="AudioStream" uid="uid://djj0its488u0r" path="res://audio/sfx/select_sfx.wav" id="5_5qvx8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -16,19 +18,20 @@ bg_color = Color(0.19215687, 0.19215687, 0.19215687, 0.5058824)
 bg_color = Color(0.19076231, 0.19076234, 0.19076222, 0.5058824)
 shadow_color = Color(0, 0, 0, 0)
 
-[node name="Main Menu" type="Control" unique_id=1981098260]
+[node name="Main Menu" type="Control" unique_id=115737077]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_6ucrw")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1716254751]
-anchor_mode = 0
+zoom = Vector2(0.8, 0.8)
+limit_left = 0
+limit_top = 0
+limit_right = 1439
+limit_bottom = 806
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+editor_draw_limits = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=984213753]
 layout_mode = 0
@@ -126,6 +129,19 @@ autoscroll = Vector2(100, 0)
 position = Vector2(-104, -416)
 texture = ExtResource("2_jy27m")
 centered = false
+
+[node name="Audio" type="Node" parent="." unique_id=1716510678]
+
+[node name="HoverSFX" type="AudioStreamPlayer" parent="Audio" unique_id=1841032746]
+stream = ExtResource("4_15p6s")
+bus = &"SFX"
+
+[node name="SelectSFX" type="AudioStreamPlayer" parent="Audio" unique_id=963327774]
+stream = ExtResource("5_5qvx8")
+bus = &"SFX"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="Audio" unique_id=1224311621]
+bus = &"Music"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]

@@ -149,6 +149,7 @@ tile_set = SubResource("TileSet_1bvp3")
 position = Vector2(144, 419)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1922037960]
+position = Vector2(0, 60)
 zoom = Vector2(1.3, 1.3)
 process_callback = 0
 limit_left = 0
@@ -179,11 +180,13 @@ position = Vector2(480, 640)
 scale = Vector2(2, 2)
 texture = ExtResource("4_1bvp3")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1191406907]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=783765674]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=1191406907]
 offset_right = 191.0
 offset_bottom = 68.0
 
-[node name="Main Menu" type="Button" parent="CenterContainer" unique_id=687510875]
+[node name="Main Menu" type="Button" parent="CanvasLayer/CenterContainer" unique_id=687510875]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.7764706)
