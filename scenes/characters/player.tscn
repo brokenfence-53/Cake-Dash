@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://di10eb247rhor"]
+
+[ext_resource type="Script" uid="uid://bfry6bl17sqn7" path="res://scripts/behaviors/player.gd" id="1_yewv4"]
+[ext_resource type="Texture2D" uid="uid://2vi7mc27numf" path="res://sprites/sidleplayer/Derp.png" id="2_76oj4"]
+[ext_resource type="AudioStream" uid="uid://78dlblu1bmo" path="res://audio/sfx/jump_sfx.wav" id="3_76oj4"]
+[ext_resource type="AudioStream" uid="uid://bac21o7mwgwks" path="res://audio/sfx/ouch_sfx.wav" id="4_dyp2m"]
+
+[sub_resource type="Animation" id="Animation_e80uo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_76oj4"]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kpjcp"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yewv4"]
+resource_name = "jump"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.75), Vector2(1, 1.15), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_kne1u"]
+resource_name = "walk"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e80uo"]
+_data = {
+&"RESET": SubResource("Animation_e80uo"),
+&"fall": SubResource("Animation_76oj4"),
+&"idle": SubResource("Animation_kpjcp"),
+&"jump": SubResource("Animation_yewv4"),
+&"walk": SubResource("Animation_kne1u")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxr5p"]
+size = Vector2(58, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdg3f"]
+size = Vector2(58, 47)
+
+[sub_resource type="Gradient" id="Gradient_yewv4"]
+offsets = PackedFloat32Array(0, 0.70481926)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_76oj4"]
+gradient = SubResource("Gradient_yewv4")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Player" type="CharacterBody2D" unique_id=1809104038 groups=["player"]]
+collision_mask = 63
+script = ExtResource("1_yewv4")
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1473506797]
+texture = ExtResource("2_76oj4")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=888334291]
+libraries/ = SubResource("AnimationLibrary_e80uo")
+speed_scale = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=809452932]
+visible = false
+position = Vector2(-1, 8)
+shape = SubResource("RectangleShape2D_cxr5p")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1895442022]
+collision_mask = 58
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1730151378]
+visible = false
+position = Vector2(-1, 3.5)
+shape = SubResource("RectangleShape2D_tdg3f")
+
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=1441109530]
+
+[node name="JumpBufferTimer" type="Timer" parent="." unique_id=38607757]
+wait_time = 0.12
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="." unique_id=744457995]
+stream = ExtResource("3_76oj4")
+bus = &"SFX"
+
+[node name="HurtSFX" type="AudioStreamPlayer" parent="." unique_id=1883411486]
+stream = ExtResource("4_dyp2m")
+bus = &"SFX"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=631548895]
+position = Vector2(-2, 0)
+color = Color(1, 0.6392157, 1, 1)
+energy = 0.7
+texture = SubResource("GradientTexture2D_76oj4")
+texture_scale = 1.2
