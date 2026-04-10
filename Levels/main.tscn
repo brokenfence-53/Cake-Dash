@@ -109,18 +109,6 @@ tonemap_mode = 1
 glow_intensity = 1.1
 glow_bloom = 0.05
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
-bg_color = Color(0.19215687, 0.19215687, 0.19215687, 0.5058824)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
-bg_color = Color(0.19076231, 0.19076234, 0.19076222, 0.5058824)
-shadow_color = Color(0, 0, 0, 0)
-
 [node name="Main" type="Node2D" unique_id=1571824727]
 script = ExtResource("1_ig7tw")
 
@@ -180,20 +168,3 @@ self_modulate = Color(0.4862745, 0.07450981, 0.8862745, 1)
 position = Vector2(480, 640)
 scale = Vector2(2, 2)
 texture = ExtResource("4_1bvp3")
-
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1191406907]
-offset_right = 191.0
-offset_bottom = 68.0
-
-[node name="Main Menu" type="Button" parent="CenterContainer" unique_id=687510875]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.7764706)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_lquwl")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7mycd")
-theme_override_styles/hover = SubResource("StyleBoxFlat_272bh")
-text = "Main Menu
-"
-alignment = 0

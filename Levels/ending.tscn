@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c8t68b833f03b"]
+
+[ext_resource type="Texture2D" uid="uid://bft3jvcpqma7a" path="res://sprites/sEndscreen/b46c6899-d773-4351-b1ee-0f365d5578e9.png" id="1_r7p3d"]
+
+[node name="Ending" type="Node2D" unique_id=1787129461]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=423318601]
+anchor_mode = 0
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=951246043]
+scale = Vector2(3.3338497, 3.3338497)
+texture = ExtResource("1_r7p3d")
+centered = false
