@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cmv0d1vbomjwe"]
 
 [ext_resource type="Script" uid="uid://cwhsqodqy2ycg" path="res://Levels/main_menu.gd" id="1_6ucrw"]
-[ext_resource type="FontFile" uid="uid://0rgql7phuv55" path="res://fonts/Braaap_S2.otf" id="2_3es34"]
+[ext_resource type="FontFile" uid="uid://biby56v28klek" path="res://fonts/pixel_digivolve/Pixel Digivolve.otf" id="2_8md67"]
 [ext_resource type="Texture2D" uid="uid://doiqh7ufivj2c" path="res://sprites/Moutains(BG)/8eacdc44-b4d4-4d10-b4e9-c615f4be71a6.png" id="2_jy27m"]
+[ext_resource type="FontFile" uid="uid://cbfmk4eirm712" path="res://fonts/pixelmix/pixelmix.ttf" id="3_15p6s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -51,7 +52,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5254902)
 theme_override_constants/shadow_offset_x = 10
 theme_override_constants/shadow_offset_y = 10
 theme_override_constants/shadow_outline_size = 0
-theme_override_fonts/font = ExtResource("2_3es34")
+theme_override_fonts/font = ExtResource("2_8md67")
 theme_override_font_sizes/font_size = 128
 text = "Cake Dash
 "
@@ -75,6 +76,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.7764706)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5254902)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_15p6s")
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
@@ -89,6 +91,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.7764706)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5254902)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_15p6s")
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
@@ -103,6 +106,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.7764706)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5254902)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_15p6s")
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")

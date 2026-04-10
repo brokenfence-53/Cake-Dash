@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cg1ls52ilbxyp" path="res://tilesets/TileSet1/Purple Square Tile.png" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://brrmp3vgyo2q8" path="res://tilesets/TileSet1/Purple Background.png" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://cq7uw2cceyird" path="res://Levels/main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://couccyopqsqa1" path="res://tilesets/TileSet1/Big Mountains.png" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://di10eb247rhor" path="res://scenes/characters/player.tscn" id="4_lquwl"]
 
@@ -121,6 +122,7 @@ bg_color = Color(0.19076231, 0.19076234, 0.19076222, 0.5058824)
 shadow_color = Color(0, 0, 0, 0)
 
 [node name="Main" type="Node2D" unique_id=1571824727]
+script = ExtResource("1_ig7tw")
 
 [node name="Background" type="Parallax2D" parent="." unique_id=122255899]
 scroll_scale = Vector2(0.2, 0.2)
