@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://v8f4baubcolw"]
+
+[ext_resource type="Script" path="res://Levels/ending.gd" id="1_alwig"]
+[ext_resource type="Texture2D" uid="uid://bft3jvcpqma7a" path="res://sprites/sEndscreen/b46c6899-d773-4351-b1ee-0f365d5578e9.png" id="1_r7p3d"]
+[ext_resource type="FontFile" uid="uid://cbfmk4eirm712" path="res://fonts/pixelmix/pixelmix.ttf" id="3_dvfx6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjydh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3sfd"]
+bg_color = Color(0.19215687, 0.19215687, 0.19215687, 0.5058824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wulv"]
+bg_color = Color(0.19076231, 0.19076234, 0.19076222, 0.5058824)
+shadow_color = Color(0, 0, 0, 0)
+
+[node name="Ending" type="Node2D" unique_id=1787129461]
+script = ExtResource("1_alwig")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=423318601]
+anchor_mode = 0
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=951246043]
+scale = Vector2(3.3338497, 3.3338497)
+texture = ExtResource("1_r7p3d")
+centered = false
+
+[node name="Main Menu" type="Button" parent="." unique_id=1371044204]
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.7764706)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5254902)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_dvfx6")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_xjydh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i3sfd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7wulv")
+text = "Main Menu"
+alignment = 0
+
+[connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]
