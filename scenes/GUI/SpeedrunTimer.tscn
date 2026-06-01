@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://tc3eb6j22dtp"]
+
+[ext_resource type="Script" uid="uid://dy5wy3efuqg4r" path="res://scripts/UI/speedrun_timer.gd" id="1_r1h8g"]
+[ext_resource type="FontFile" uid="uid://biby56v28klek" path="res://fonts/pixel_digivolve/Pixel Digivolve.otf" id="2_3b5hn"]
+
+[node name="HUDTimer" type="CanvasLayer" unique_id=1898731319]
+
+[node name="SpeedrunTimer" type="Control" parent="." unique_id=1349848055]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+script = ExtResource("1_r1h8g")
+
+[node name="TimerLabel" type="Label" parent="SpeedrunTimer" unique_id=108672680]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_bottom = 24.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_3b5hn")
+theme_override_font_sizes/font_size = 30
+text = "00:00.00"
+
+[node name="BestTimeLabel" type="Label" parent="SpeedrunTimer" unique_id=441588089]
+layout_mode = 0
+offset_left = -72.0
+offset_top = 32.0
+offset_right = 40.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(0.99607843, 0.9254902, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("2_3b5hn")
+theme_override_font_sizes/font_size = 25
+text = "00:00.00"
