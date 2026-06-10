@@ -7,18 +7,20 @@
 [ext_resource type="AudioStream" uid="uid://busck6phxx7b1" path="res://audio/sfx/hover_sfx.wav" id="4_15p6s"]
 [ext_resource type="Script" uid="uid://cdntbqr76ymv" path="res://scripts/UI/anim button.gd" id="4_hllw6"]
 [ext_resource type="AudioStream" uid="uid://djj0its488u0r" path="res://audio/sfx/select_sfx.wav" id="5_5qvx8"]
+[ext_resource type="Shader" uid="uid://b0xvfv52dblga" path="res://scripts/shaders/moving_texture.gdshader" id="5_qor8d"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(5, 5)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qor8d"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
-bg_color = Color(0.19215687, 0.19215687, 0.19215687, 0.5058824)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6e2af"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
-bg_color = Color(0.19076231, 0.19076234, 0.19076222, 0.5058824)
-shadow_color = Color(0, 0, 0, 0)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yw3yt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hllw6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6e2af"]
+shader = ExtResource("5_qor8d")
+shader_parameter/scroll_speed = 0.03
+shader_parameter/scale = 1.0
 
 [node name="Main Menu" type="Control" unique_id=115737077]
 layout_mode = 3
@@ -82,9 +84,10 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5254902)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_15p6s")
 theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qor8d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6e2af")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yw3yt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hllw6")
 text = "Continue"
 alignment = 0
 script = ExtResource("4_hllw6")
@@ -98,9 +101,10 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5254902)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_15p6s")
 theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qor8d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6e2af")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yw3yt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hllw6")
 text = "New Game"
 alignment = 0
 script = ExtResource("4_hllw6")
@@ -114,9 +118,10 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5254902)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_15p6s")
 theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qor8d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6e2af")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yw3yt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hllw6")
 text = "Quit"
 alignment = 0
 script = ExtResource("4_hllw6")
@@ -128,15 +133,15 @@ size_flags_horizontal = 3
 [node name="Background" type="Node2D" parent="." unique_id=2009166050]
 z_index = -1
 
-[node name="Parallax2D" type="Parallax2D" parent="Background" unique_id=1603064453]
-texture_filter = 1
-repeat_size = Vector2(2779, 1750)
-autoscroll = Vector2(100, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D" unique_id=1675508813]
-position = Vector2(-104, -416)
+[node name="BackgroundTexture" type="TextureRect" parent="Background" unique_id=1818450783]
+material = SubResource("ShaderMaterial_6e2af")
+offset_left = -104.0
+offset_top = -168.0
+offset_right = 2480.0
+offset_bottom = 1016.0
 texture = ExtResource("2_jy27m")
-centered = false
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Audio" type="Node" parent="." unique_id=1716510678]
 

@@ -1,0 +1,258 @@
+[gd_scene format=3 uid="uid://dd7t83tfdtl3w"]
+
+[ext_resource type="Shader" uid="uid://b0xvfv52dblga" path="res://scripts/shaders/moving_texture.gdshader" id="1_7ig5c"]
+[ext_resource type="Texture2D" uid="uid://cxn2k5mqxsoer" path="res://sprites/Purple Background/Green Checker Block.png" id="1_f5drr"]
+[ext_resource type="FontFile" uid="uid://biby56v28klek" path="res://fonts/pixel_digivolve/Pixel Digivolve.otf" id="1_hdh70"]
+[ext_resource type="Texture2D" uid="uid://cogsblv1m48xf" path="res://sprites/Buttons/level button.png" id="2_dysn8"]
+[ext_resource type="Shader" uid="uid://cexuk2qm3vc40" path="res://scripts/shaders/bounce.gdshader" id="3_j6gkc"]
+[ext_resource type="Script" uid="uid://cdntbqr76ymv" path="res://scripts/UI/anim button.gd" id="6_j6gkc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ixgi4"]
+shader = ExtResource("1_7ig5c")
+shader_parameter/scroll_speed = 0.2
+shader_parameter/scale = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vw0du"]
+shader = ExtResource("3_j6gkc")
+shader_parameter/do_abs = false
+shader_parameter/do_quantize = false
+shader_parameter/quantize_to = 1.0
+shader_parameter/sine_amplitude = Vector2(5, 5)
+shader_parameter/sine_speed = Vector2(0, 10)
+shader_parameter/sine_phase = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f5drr"]
+texture = ExtResource("2_dysn8")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n2oah"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ig5c"]
+
+[node name="LevelSelection" type="Node2D" unique_id=1911062215]
+
+[node name="Background" type="TextureRect" parent="." unique_id=1521081716]
+modulate = Color(1, 0, 1, 1)
+material = SubResource("ShaderMaterial_ixgi4")
+offset_right = 384.00003
+offset_bottom = 218.66667
+scale = Vector2(3, 3)
+texture = ExtResource("1_f5drr")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1533667987]
+material = SubResource("ShaderMaterial_vw0du")
+offset_left = 256.0
+offset_top = 48.0
+offset_right = 906.0
+offset_bottom = 154.0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_hdh70")
+theme_override_font_sizes/font_size = 90
+text = "LEVEL SELECT"
+metadata/_edit_lock_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1669576646]
+offset_left = 40.0
+offset_top = 160.0
+offset_right = 1112.0
+offset_bottom = 600.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=1824075580]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 5
+
+[node name="Level1" type="Button" parent="CenterContainer/GridContainer" unique_id=1775895362]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_hdh70")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n2oah")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ig5c")
+text = "1"
+script = ExtResource("6_j6gkc")
+metadata/_custom_type_script = "uid://cdntbqr76ymv"
+
+[node name="Level2" type="Button" parent="CenterContainer/GridContainer" unique_id=833464243]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_hdh70")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n2oah")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ig5c")
+text = "2"
+script = ExtResource("6_j6gkc")
+metadata/_custom_type_script = "uid://cdntbqr76ymv"
+
+[node name="Level3" type="Button" parent="CenterContainer/GridContainer" unique_id=1296112953]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_hdh70")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n2oah")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ig5c")
+text = "3"
+script = ExtResource("6_j6gkc")
+metadata/_custom_type_script = "uid://cdntbqr76ymv"
+
+[node name="Level4" type="Button" parent="CenterContainer/GridContainer" unique_id=955974779]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_hdh70")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n2oah")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ig5c")
+text = "4"
+script = ExtResource("6_j6gkc")
+metadata/_custom_type_script = "uid://cdntbqr76ymv"
+
+[node name="Level5" type="Button" parent="CenterContainer/GridContainer" unique_id=553162566]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_hdh70")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n2oah")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ig5c")
+text = "5"
+script = ExtResource("6_j6gkc")
+metadata/_custom_type_script = "uid://cdntbqr76ymv"
+
+[node name="Level6" type="Button" parent="CenterContainer/GridContainer" unique_id=1308737602]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_hdh70")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n2oah")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ig5c")
+text = "6"
+script = ExtResource("6_j6gkc")
+metadata/_custom_type_script = "uid://cdntbqr76ymv"
+
+[node name="Level7" type="Button" parent="CenterContainer/GridContainer" unique_id=1746682592]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_hdh70")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n2oah")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ig5c")
+text = "7"
+script = ExtResource("6_j6gkc")
+metadata/_custom_type_script = "uid://cdntbqr76ymv"
+
+[node name="Level8" type="Button" parent="CenterContainer/GridContainer" unique_id=910571784]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_hdh70")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n2oah")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ig5c")
+text = "8"
+script = ExtResource("6_j6gkc")
+metadata/_custom_type_script = "uid://cdntbqr76ymv"
+
+[node name="Level9" type="Button" parent="CenterContainer/GridContainer" unique_id=1205601434]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_hdh70")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n2oah")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ig5c")
+text = "9"
+script = ExtResource("6_j6gkc")
+metadata/_custom_type_script = "uid://cdntbqr76ymv"
+
+[node name="Level10" type="Button" parent="CenterContainer/GridContainer" unique_id=2079795591]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_hdh70")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f5drr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n2oah")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ig5c")
+text = "10"
+script = ExtResource("6_j6gkc")
+metadata/_custom_type_script = "uid://cdntbqr76ymv"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=554640307]
+position = Vector2(576, 328)
+
+[node name="Button" type="Button" parent="." unique_id=2140646468]
+offset_left = 24.0
+offset_top = 592.0
+offset_right = 136.0
+offset_bottom = 640.0
+text = "< BACK"
