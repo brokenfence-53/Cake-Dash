@@ -13,4 +13,10 @@ func _connect_cards() -> void:
 			child.level_selected.connect(_on_level_selected)
 
 func _on_level_selected(level: LevelData) -> void:
-	TransitionManager.go_to_scene(level.scene_path)
+	TransitionManager.go_to_scene(
+		level.scene,
+		"",
+		$AnimationPlayer,
+		"close",
+		"open"
+	)

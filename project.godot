@@ -22,6 +22,8 @@ buses/default_bus_layout="uid://b52k6225s06rt"
 [autoload]
 
 EventBus="*uid://bqwiem2ewop3o"
+GameData="*uid://c84hku5t1b61y"
+TransitionManager="*uid://n13skyk0lv7r"
 
 [display]
 
