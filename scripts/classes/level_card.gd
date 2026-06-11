@@ -12,6 +12,8 @@ signal level_selected(level: LevelData)
 @onready var lock_icon_node : TextureRect = $LockIcon
 @onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
 
+var _is_unlocked : bool = false
+
 func _ready() -> void:
 	assert(level_data != null, name + ": No LevelData assigned in Inspector!")
 	GameData.data_changed.connect(_refresh)
@@ -34,7 +36,10 @@ func _refresh() -> void:
 			lock_icon_node.texture = lock_icon
 
 func _on_pressed() -> void:
-	_play_sfx(click_sfx)
+	if _is_unlocked:
+		_play_sfx(click_sfx)
+	else:
+		_play_sfx(lock_sfx)
 	level_selected.emit(level_data)
 
 func _play_sfx(stream: AudioStream) -> void:
