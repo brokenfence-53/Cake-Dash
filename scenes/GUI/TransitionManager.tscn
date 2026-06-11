@@ -1,3 +1,133 @@
 [gd_scene format=3 uid="uid://dn5klv8lv0uxh"]
 
+[ext_resource type="Shader" uid="uid://b0xvfv52dblga" path="res://scripts/shaders/moving_texture.gdshader" id="1_snqeq"]
+[ext_resource type="Texture2D" uid="uid://cj55120fcy03t" path="res://tilesets/TileSet1/purple dotted bg.png" id="2_76rh1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k7qqa"]
+shader = ExtResource("1_snqeq")
+shader_parameter/scroll_speed = 0.4
+shader_parameter/scale = 1.0
+
+[sub_resource type="Animation" id="Animation_snqeq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BottomPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 320)]
+}
+
+[sub_resource type="Animation" id="Animation_76rh1"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BottomPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 320), Vector2(0, 320)]
+}
+
+[sub_resource type="Animation" id="Animation_k7qqa"]
+resource_name = "open"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -321)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BottomPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 320), Vector2(0, 968)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ciawl"]
+_data = {
+&"RESET": SubResource("Animation_snqeq"),
+&"close": SubResource("Animation_76rh1"),
+&"open": SubResource("Animation_k7qqa")
+}
+
 [node name="TransitionManager" type="CanvasLayer" unique_id=1292558212]
+
+[node name="TopPanel" type="ColorRect" parent="." unique_id=327509499]
+clip_children = 1
+offset_right = 1152.0
+offset_bottom = 320.0
+
+[node name="DotTexture" type="TextureRect" parent="TopPanel" unique_id=1579582917]
+material = SubResource("ShaderMaterial_k7qqa")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_76rh1")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="BottomPanel" type="ColorRect" parent="." unique_id=1062560695]
+offset_top = 320.0
+offset_right = 1152.0
+offset_bottom = 647.999
+
+[node name="DotTexture" type="TextureRect" parent="BottomPanel" unique_id=1498259362]
+material = SubResource("ShaderMaterial_k7qqa")
+layout_mode = 0
+offset_top = -320.0
+offset_right = 1152.0
+offset_bottom = 328.0
+texture = ExtResource("2_76rh1")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1134543748]
+libraries/ = SubResource("AnimationLibrary_ciawl")
+autoplay = &"open"
