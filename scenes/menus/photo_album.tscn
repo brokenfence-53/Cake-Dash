@@ -10,6 +10,12 @@ texture = ExtResource("2_vuxs7")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abo5w"]
 
+[sub_resource type="Gradient" id="Gradient_vuxs7"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_deolp"]
+gradient = SubResource("Gradient_vuxs7")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vuxs7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_deolp"]
@@ -53,7 +59,7 @@ offset_top = 40.0
 offset_right = 544.0
 offset_bottom = 616.0
 
-[node name="CardButton" type="Button" parent="Pages/Page0" unique_id=158727372]
+[node name="CardButton1" type="Button" parent="Pages/Page0" unique_id=158727372]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 16.0
@@ -66,7 +72,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_abo5w")
 
-[node name="Picture" type="TextureRect" parent="Pages/Page0/CardButton" unique_id=368417623]
+[node name="Picture" type="TextureRect" parent="Pages/Page0/CardButton1" unique_id=368417623]
 z_index = -1
 layout_mode = 0
 offset_left = 8.0
@@ -76,12 +82,54 @@ offset_bottom = 168.0
 texture = ExtResource("3_deolp")
 expand_mode = 1
 
-[node name="DescriptionLabel" type="Label" parent="Pages/Page0/CardButton" unique_id=1463987592]
+[node name="DescriptionLabel" type="Label" parent="Pages/Page0/CardButton1" unique_id=1463987592]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 16.0
+offset_top = 216.0
+offset_right = 194.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4sqb6")
+theme_override_font_sizes/font_size = 20
+text = "WHERE'S CAKE?!?"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pages/Page0/CardButton" unique_id=369528069]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pages/Page0/CardButton1" unique_id=369528069]
+
+[node name="CardButton2" type="Button" parent="Pages/Page0" unique_id=759334768]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 288.0
+offset_right = 472.0
+offset_bottom = 496.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_abo5w")
+
+[node name="Picture" type="TextureRect" parent="Pages/Page0/CardButton2" unique_id=2111899131]
+z_index = -1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 200.0
+offset_bottom = 168.0
+texture = SubResource("GradientTexture2D_deolp")
+expand_mode = 1
+
+[node name="DescriptionLabel" type="Label" parent="Pages/Page0/CardButton2" unique_id=1981446896]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 216.0
+offset_right = 194.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4sqb6")
+theme_override_font_sizes/font_size = 20
+text = "STILL NO CAKE :("
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pages/Page0/CardButton2" unique_id=1890795722]
 
 [node name="Page1" type="Control" parent="Pages" unique_id=821643191]
 layout_mode = 3
