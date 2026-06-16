@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://6hykg24kyai5"]
+
+[ext_resource type="Texture2D" uid="uid://bhyouhynhjb50" path="res://sprites/PhotoAlbum/album book.png" id="1_o7xns"]
+[ext_resource type="FontFile" uid="uid://biby56v28klek" path="res://fonts/pixel_digivolve/Pixel Digivolve.otf" id="2_4sqb6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vuxs7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_deolp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f218k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_caqbn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ssyv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ban1t"]
+
+[node name="PhotoAlbum" type="Control" unique_id=2105363739]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="BG" type="ColorRect" parent="." unique_id=1614044265]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 0.68235296, 0.3372549, 1)
+metadata/_edit_lock_ = true
+
+[node name="TextureBG" type="TextureRect" parent="BG" unique_id=407969183]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_o7xns")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="Pages" type="Node" parent="." unique_id=1633436404]
+
+[node name="Page0" type="Control" parent="Pages" unique_id=628032564]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Page1" type="Control" parent="Pages" unique_id=821643191]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NavButtons" type="HBoxContainer" parent="." unique_id=1158353079]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 522.0
+offset_right = 1115.0
+offset_bottom = 614.0
+theme_override_constants/separation = 980
+
+[node name="PrevButton" type="Button" parent="NavButtons" unique_id=111774028]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.19215687, 0.63529414, 0.9490196, 1)
+theme_override_fonts/font = ExtResource("2_4sqb6")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vuxs7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_deolp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_f218k")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_caqbn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0ssyv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ban1t")
+text = "<"
+
+[node name="NextButton" type="Button" parent="NavButtons" unique_id=1292721702]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.19215687, 0.63529414, 0.9490196, 1)
+theme_override_fonts/font = ExtResource("2_4sqb6")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vuxs7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_deolp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_f218k")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_caqbn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0ssyv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ban1t")
+text = ">"
+
+[node name="SFX" type="Node" parent="." unique_id=1347800068]
+
+[node name="PageFlipSFX" type="AudioStreamPlayer" parent="SFX" unique_id=1001495276]
+bus = &"SFX"
+
+[node name="HoverSFX" type="AudioStreamPlayer" parent="SFX" unique_id=924455240]
+
+[node name="PaperSFX" type="AudioStreamPlayer" parent="SFX" unique_id=405080118]
