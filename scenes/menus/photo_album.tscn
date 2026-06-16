@@ -2,6 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bhyouhynhjb50" path="res://sprites/PhotoAlbum/album book.png" id="1_o7xns"]
 [ext_resource type="FontFile" uid="uid://biby56v28klek" path="res://fonts/pixel_digivolve/Pixel Digivolve.otf" id="2_4sqb6"]
+[ext_resource type="Texture2D" uid="uid://cmsaqxygmo4be" path="res://sprites/PhotoAlbum/photo album.png" id="2_vuxs7"]
+[ext_resource type="Texture2D" uid="uid://brrmp3vgyo2q8" path="res://tilesets/TileSet1/Purple Background.png" id="3_deolp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f218k"]
+texture = ExtResource("2_vuxs7")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abo5w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vuxs7"]
 
@@ -20,6 +27,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="BG" type="ColorRect" parent="." unique_id=1614044265]
+z_index = -1
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -40,14 +48,48 @@ metadata/_edit_lock_ = true
 [node name="Page0" type="Control" parent="Pages" unique_id=628032564]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 544.0
+offset_bottom = 616.0
+
+[node name="CardButton" type="Button" parent="Pages/Page0" unique_id=158727372]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 256.0
+offset_bottom = 224.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_abo5w")
+
+[node name="Picture" type="TextureRect" parent="Pages/Page0/CardButton" unique_id=368417623]
+z_index = -1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 200.0
+offset_bottom = 168.0
+texture = ExtResource("3_deolp")
+expand_mode = 1
+
+[node name="DescriptionLabel" type="Label" parent="Pages/Page0/CardButton" unique_id=1463987592]
+layout_mode = 0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pages/Page0/CardButton" unique_id=369528069]
 
 [node name="Page1" type="Control" parent="Pages" unique_id=821643191]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 608.0
+offset_top = 40.0
+offset_right = 1120.0
+offset_bottom = 616.0
 
 [node name="NavButtons" type="HBoxContainer" parent="." unique_id=1158353079]
 layout_mode = 0
