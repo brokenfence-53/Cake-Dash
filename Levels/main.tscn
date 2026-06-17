@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://vxrtqoeo60fv" path="res://scenes/obstacles/sign.tscn" id="5_ovrsl"]
 [ext_resource type="PackedScene" uid="uid://dds655ytmo1rk" path="res://scenes/menus/pause menu.tscn" id="6_34bfm"]
 [ext_resource type="PackedScene" uid="uid://tc3eb6j22dtp" path="res://scenes/GUI/SpeedrunTimer.tscn" id="8_hbaan"]
+[ext_resource type="PackedScene" uid="uid://shyght1ova0x" path="res://scenes/interactables/Candle.tscn" id="9_he5fp"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h2yge"]
 polygon = PackedVector2Array(-8, 8, 8, 8, 8, -4, -8, -4)
@@ -140,8 +141,15 @@ tile_set = SubResource("TileSet_1bvp3")
 
 [node name="Objects" type="Node2D" parent="." unique_id=295320658]
 
-[node name="Sign" parent="Objects" unique_id=1570586105 instance=ExtResource("5_ovrsl")]
+[node name="Interactables" type="Node2D" parent="Objects" unique_id=1152704278]
+
+[node name="Sign" parent="Objects/Interactables" unique_id=1570586105 instance=ExtResource("5_ovrsl")]
 position = Vector2(302, 408)
+
+[node name="Candles" type="Node2D" parent="Objects" unique_id=2095384267]
+
+[node name="Candle" parent="Objects/Candles" unique_id=992938459 instance=ExtResource("9_he5fp")]
+position = Vector2(1034, 605)
 
 [node name="Player" parent="." unique_id=1809104038 instance=ExtResource("4_lquwl")]
 position = Vector2(144, 419)

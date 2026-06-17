@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0sp47mbacgpc" path="res://scripts/classes/candle.gd" id="1_wxcwj"]
 [ext_resource type="Texture2D" uid="uid://cyoefga8l85tu" path="res://sprites/Candle/Candles.png" id="2_6husr"]
+[ext_resource type="AudioStream" uid="uid://c86twg6p6o4dn" path="res://audio/sfx/CoinSFX.wav" id="3_7gux2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7gux2"]
 radius = 32.0
@@ -139,5 +140,7 @@ shape = SubResource("CircleShape2D_7gux2")
 libraries/ = SubResource("AnimationLibrary_sskkj")
 
 [node name="CollectSFX" type="AudioStreamPlayer" parent="." unique_id=2131410988]
+stream = ExtResource("3_7gux2")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,20 +1,105 @@
 [gd_scene format=3 uid="uid://6hykg24kyai5"]
 
+[ext_resource type="Script" uid="uid://bni30iju0m6lg" path="res://scripts/classes/level_select_menu.gd" id="1_ban1t"]
 [ext_resource type="Texture2D" uid="uid://bhyouhynhjb50" path="res://sprites/PhotoAlbum/album book.png" id="1_o7xns"]
 [ext_resource type="FontFile" uid="uid://biby56v28klek" path="res://fonts/pixel_digivolve/Pixel Digivolve.otf" id="2_4sqb6"]
 [ext_resource type="Texture2D" uid="uid://cmsaqxygmo4be" path="res://sprites/PhotoAlbum/photo album.png" id="2_vuxs7"]
+[ext_resource type="Script" uid="uid://dbfakuhfkjtiy" path="res://scripts/UI/photo_card.gd" id="3_caqbn"]
 [ext_resource type="Texture2D" uid="uid://brrmp3vgyo2q8" path="res://tilesets/TileSet1/Purple Background.png" id="3_deolp"]
+[ext_resource type="Script" uid="uid://bfrqpjaw00kkc" path="res://scripts/resources/level_data.gd" id="4_0ssyv"]
+[ext_resource type="PackedScene" uid="uid://bwkssa0vrdl4r" path="res://Levels/main.tscn" id="5_0ssyv"]
+[ext_resource type="Texture2D" uid="uid://vgrpeo0ejnbp" path="res://sprites/Buttons/lock sprite.png" id="7_ban1t"]
+[ext_resource type="Shader" uid="uid://caapt22msot3y" path="res://scripts/page_flip.gdshader" id="10_abo5w"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f218k"]
 texture = ExtResource("2_vuxs7")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abo5w"]
 
+[sub_resource type="Resource" id="Resource_abo5w"]
+script = ExtResource("4_0ssyv")
+level_name = "Level 1"
+description = "WHERE'S CAKE?!?"
+metadata/_custom_type_script = "uid://bfrqpjaw00kkc"
+
+[sub_resource type="Animation" id="Animation_ban1t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DescriptionLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 216)]
+}
+
+[sub_resource type="Animation" id="Animation_abo5w"]
+resource_name = "label_slide_in"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DescriptionLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Vector2(16, 216), Vector2(16, 183)]
+}
+
+[sub_resource type="Animation" id="Animation_63pnd"]
+resource_name = "label_slide_out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DescriptionLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(16, 183), Vector2(16, 216)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_645u7"]
+_data = {
+&"RESET": SubResource("Animation_ban1t"),
+&"label_slide_in": SubResource("Animation_abo5w"),
+&"label_slide_out": SubResource("Animation_63pnd")
+}
+
+[sub_resource type="Resource" id="Resource_63pnd"]
+script = ExtResource("4_0ssyv")
+level_name = "Level 3"
+description = "CAKE PLZ"
+unlocked_by = "Level 2"
+metadata/_custom_type_script = "uid://bfrqpjaw00kkc"
+
 [sub_resource type="Gradient" id="Gradient_vuxs7"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_deolp"]
 gradient = SubResource("Gradient_vuxs7")
+
+[sub_resource type="Animation" id="Animation_645u7"]
+resource_name = "label_slide_in"
+
+[sub_resource type="Animation" id="Animation_ashnv"]
+resource_name = "label_slide_out"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hi0eo"]
+_data = {
+&"label_slide_in": SubResource("Animation_645u7"),
+&"label_slide_out": SubResource("Animation_ashnv")
+}
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vuxs7"]
 
@@ -28,9 +113,113 @@ gradient = SubResource("Gradient_vuxs7")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ban1t"]
 
+[sub_resource type="Animation" id="Animation_hi0eo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PageFlipOverlay:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(609, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageFlipOverlay:material:shader_parameter/flip_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_sop00"]
+resource_name = "page_back"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PageFlipOverlay:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(48, 40), Vector2(155.378, 40), Vector2(328, 40), Vector2(505.13, 40), Vector2(612, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageFlipOverlay:material:shader_parameter/flip_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.50000002375, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ei3rp"]
+resource_name = "page_flip"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PageFlipOverlay:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(612, 40), Vector2(505.13, 40), Vector2(329, 40), Vector2(154.378, 40), Vector2(48, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageFlipOverlay:material:shader_parameter/flip_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.50000002375, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sop00"]
+_data = {
+&"RESET": SubResource("Animation_hi0eo"),
+&"page_back": SubResource("Animation_sop00"),
+&"page_flip": SubResource("Animation_ei3rp")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_63pnd"]
+shader = ExtResource("10_abo5w")
+shader_parameter/flip_progress = 0.0
+shader_parameter/shade_strength = 0.6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ban1t"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.19215687, 0.63529414, 0.9490196, 1)
+
 [node name="PhotoAlbum" type="Control" unique_id=2105363739]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_ban1t")
 
 [node name="BG" type="ColorRect" parent="." unique_id=1614044265]
 z_index = -1
@@ -61,16 +250,32 @@ offset_bottom = 616.0
 
 [node name="CardButton1" type="Button" parent="Pages/Page0" unique_id=158727372]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 16.0
-offset_right = 256.0
-offset_bottom = 224.0
+offset_left = 40.0
+offset_top = 8.0
+offset_right = 248.0
+offset_bottom = 216.0
+pivot_offset = Vector2(104, 100)
 theme_override_styles/normal = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/hover = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_abo5w")
+script = ExtResource("3_caqbn")
+level_data = SubResource("Resource_abo5w")
+level_scene = ExtResource("5_0ssyv")
+
+[node name="DescriptionLabel" type="Label" parent="Pages/Page0/CardButton1" unique_id=1463987592]
+z_index = -1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 216.0
+offset_right = 194.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4sqb6")
+theme_override_font_sizes/font_size = 20
+text = "WHERE'S CAKE?!?"
 
 [node name="Picture" type="TextureRect" parent="Pages/Page0/CardButton1" unique_id=368417623]
 z_index = -1
@@ -82,31 +287,34 @@ offset_bottom = 168.0
 texture = ExtResource("3_deolp")
 expand_mode = 1
 
-[node name="DescriptionLabel" type="Label" parent="Pages/Page0/CardButton1" unique_id=1463987592]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 216.0
-offset_right = 194.0
-offset_bottom = 240.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4sqb6")
-theme_override_font_sizes/font_size = 20
-text = "WHERE'S CAKE?!?"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pages/Page0/CardButton1" unique_id=369528069]
+libraries/ = SubResource("AnimationLibrary_645u7")
+
+[node name="LockIcon" type="TextureRect" parent="Pages/Page0/CardButton1" unique_id=1497998065]
+visible = false
+layout_mode = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 196.0
+offset_bottom = 204.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_ban1t")
 
 [node name="CardButton2" type="Button" parent="Pages/Page0" unique_id=759334768]
 layout_mode = 0
-offset_left = 264.0
-offset_top = 288.0
-offset_right = 472.0
-offset_bottom = 496.0
+offset_left = 48.0
+offset_top = 280.0
+offset_right = 256.0
+offset_bottom = 488.0
+pivot_offset = Vector2(104, 104)
 theme_override_styles/normal = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/hover = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_abo5w")
+script = ExtResource("3_caqbn")
+level_data = SubResource("Resource_63pnd")
 
 [node name="Picture" type="TextureRect" parent="Pages/Page0/CardButton2" unique_id=2111899131]
 z_index = -1
@@ -119,6 +327,7 @@ texture = SubResource("GradientTexture2D_deolp")
 expand_mode = 1
 
 [node name="DescriptionLabel" type="Label" parent="Pages/Page0/CardButton2" unique_id=1981446896]
+z_index = -1
 layout_mode = 0
 offset_left = 16.0
 offset_top = 216.0
@@ -130,6 +339,68 @@ theme_override_font_sizes/font_size = 20
 text = "STILL NO CAKE :("
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pages/Page0/CardButton2" unique_id=1890795722]
+libraries/ = SubResource("AnimationLibrary_hi0eo")
+
+[node name="LockIcon" type="TextureRect" parent="Pages/Page0/CardButton2" unique_id=137565766]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 196.0
+offset_bottom = 204.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_ban1t")
+
+[node name="CardButton3" type="Button" parent="Pages/Page0" unique_id=1835813321]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 88.0
+offset_right = 480.0
+offset_bottom = 296.0
+pivot_offset = Vector2(104, 104)
+theme_override_styles/normal = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_abo5w")
+script = ExtResource("3_caqbn")
+level_data = SubResource("Resource_63pnd")
+
+[node name="Picture" type="TextureRect" parent="Pages/Page0/CardButton3" unique_id=1267885517]
+z_index = -1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 200.0
+offset_bottom = 168.0
+texture = SubResource("GradientTexture2D_deolp")
+expand_mode = 1
+
+[node name="DescriptionLabel" type="Label" parent="Pages/Page0/CardButton3" unique_id=886488778]
+z_index = -1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 216.0
+offset_right = 194.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4sqb6")
+theme_override_font_sizes/font_size = 20
+text = "CAKE PLZ"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pages/Page0/CardButton3" unique_id=1821439964]
+libraries/ = SubResource("AnimationLibrary_hi0eo")
+
+[node name="LockIcon" type="TextureRect" parent="Pages/Page0/CardButton3" unique_id=617046595]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 196.0
+offset_bottom = 204.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_ban1t")
 
 [node name="Page1" type="Control" parent="Pages" unique_id=821643191]
 layout_mode = 3
@@ -140,6 +411,7 @@ offset_right = 1120.0
 offset_bottom = 616.0
 
 [node name="NavButtons" type="HBoxContainer" parent="." unique_id=1158353079]
+z_index = 1
 layout_mode = 0
 offset_left = 57.0
 offset_top = 522.0
@@ -179,5 +451,39 @@ text = ">"
 bus = &"SFX"
 
 [node name="HoverSFX" type="AudioStreamPlayer" parent="SFX" unique_id=924455240]
+bus = &"SFX"
 
 [node name="PaperSFX" type="AudioStreamPlayer" parent="SFX" unique_id=405080118]
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2003337983]
+libraries/ = SubResource("AnimationLibrary_sop00")
+
+[node name="PageLabel" type="Label" parent="." unique_id=1626591604]
+z_index = 1
+layout_mode = 0
+offset_left = 885.0
+offset_top = 554.0
+offset_right = 1028.0
+offset_bottom = 590.0
+theme_override_colors/font_color = Color(0.47103667, 0.75494784, 0.98891836, 1)
+theme_override_fonts/font = ExtResource("2_4sqb6")
+theme_override_font_sizes/font_size = 30
+text = "Page 1/2"
+
+[node name="PageFlipOverlay" type="Panel" parent="." unique_id=7054952]
+material = SubResource("ShaderMaterial_63pnd")
+layout_mode = 0
+offset_left = 609.0
+offset_top = 40.0
+offset_right = 1100.9993
+offset_bottom = 597.0
+pivot_offset = Vector2(-1, 280)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ban1t")
+
+[connection signal="level_selected" from="Pages/Page0/CardButton1" to="." method="_on_level_selected"]
+[connection signal="level_selected" from="Pages/Page0/CardButton2" to="." method="_on_level_selected"]
+[connection signal="level_selected" from="Pages/Page0/CardButton3" to="." method="_on_level_selected"]
+[connection signal="pressed" from="NavButtons/PrevButton" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="NavButtons/NextButton" to="." method="_on_next_pressed"]
