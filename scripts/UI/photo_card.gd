@@ -12,6 +12,7 @@ signal level_selected(level: LevelData)
 @onready var lock_icon_node: TextureRect = $LockIcon
 @onready var description_label: Label = $DescriptionLabel
 @onready var anim: AnimationPlayer = $AnimationPlayer
+@onready var picture : TextureRect = $Picture
 
 const LABEL_HIDDEN_Y: float = 180.0
 const LABEL_SHOWN_Y: float = 216.0
@@ -39,10 +40,12 @@ func _ready() -> void:
 func _refresh() -> void:
 	var is_unlocked: bool = GameData.is_level_unlocked(level_data)
 	if is_unlocked:
+		picture.modulate = Color.WHITE
 		modulate = Color.WHITE
 		disabled = false
 		lock_icon_node.visible = false
 	else:
+		picture.modulate = Color.BLACK
 		modulate = Color(0.45, 0.45, 0.45, 1.0)
 		disabled = true
 		lock_icon_node.visible = true

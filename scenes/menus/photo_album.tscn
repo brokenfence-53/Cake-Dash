@@ -76,18 +76,18 @@ _data = {
 &"label_slide_out": SubResource("Animation_63pnd")
 }
 
-[sub_resource type="Resource" id="Resource_63pnd"]
+[sub_resource type="Resource" id="Resource_645u7"]
 script = ExtResource("4_0ssyv")
-level_name = "Level 3"
-description = "CAKE PLZ"
-unlocked_by = "Level 2"
+level_name = "Level 2"
+description = "STILL NO CAKE :("
+unlocked_by = "Level 1"
 metadata/_custom_type_script = "uid://bfrqpjaw00kkc"
 
-[sub_resource type="Gradient" id="Gradient_vuxs7"]
+[sub_resource type="Gradient" id="Gradient_ashnv"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_deolp"]
-gradient = SubResource("Gradient_vuxs7")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hi0eo"]
+gradient = SubResource("Gradient_ashnv")
 
 [sub_resource type="Animation" id="Animation_645u7"]
 resource_name = "label_slide_in"
@@ -100,6 +100,40 @@ _data = {
 &"label_slide_in": SubResource("Animation_645u7"),
 &"label_slide_out": SubResource("Animation_ashnv")
 }
+
+[sub_resource type="Resource" id="Resource_ei3rp"]
+script = ExtResource("4_0ssyv")
+level_name = "Level 3"
+description = "CAKE PLZ"
+unlocked_by = "Level 2"
+metadata/_custom_type_script = "uid://bfrqpjaw00kkc"
+
+[sub_resource type="Gradient" id="Gradient_vuxs7"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_deolp"]
+gradient = SubResource("Gradient_vuxs7")
+
+[sub_resource type="Resource" id="Resource_sop00"]
+script = ExtResource("4_0ssyv")
+level_name = "Level 4"
+description = "FRIENDS?"
+unlocked_by = "Level 3"
+metadata/_custom_type_script = "uid://bfrqpjaw00kkc"
+
+[sub_resource type="Resource" id="Resource_jgm7g"]
+script = ExtResource("4_0ssyv")
+level_name = "Level 5"
+description = "HOW IS CAKE?"
+unlocked_by = "Level 4"
+metadata/_custom_type_script = "uid://bfrqpjaw00kkc"
+
+[sub_resource type="Resource" id="Resource_63pnd"]
+script = ExtResource("4_0ssyv")
+level_name = "Level 6"
+description = "DO IT 4 CAKE"
+unlocked_by = "Level 5"
+metadata/_custom_type_script = "uid://bfrqpjaw00kkc"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vuxs7"]
 
@@ -314,7 +348,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_abo5w")
 script = ExtResource("3_caqbn")
-level_data = SubResource("Resource_63pnd")
+level_data = SubResource("Resource_645u7")
 
 [node name="Picture" type="TextureRect" parent="Pages/Page0/CardButton2" unique_id=2111899131]
 z_index = -1
@@ -323,7 +357,7 @@ offset_left = 8.0
 offset_top = 24.0
 offset_right = 200.0
 offset_bottom = 168.0
-texture = SubResource("GradientTexture2D_deolp")
+texture = SubResource("GradientTexture2D_hi0eo")
 expand_mode = 1
 
 [node name="DescriptionLabel" type="Label" parent="Pages/Page0/CardButton2" unique_id=1981446896]
@@ -364,7 +398,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_f218k")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_abo5w")
 script = ExtResource("3_caqbn")
-level_data = SubResource("Resource_63pnd")
+level_data = SubResource("Resource_ei3rp")
 
 [node name="Picture" type="TextureRect" parent="Pages/Page0/CardButton3" unique_id=1267885517]
 z_index = -1
@@ -402,7 +436,164 @@ offset_bottom = 204.0
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_ban1t")
 
+[node name="CardButton4" type="Button" parent="Pages/Page0" unique_id=753217020]
+z_index = 1
+layout_mode = 0
+offset_left = 601.0
+offset_top = 8.0
+offset_right = 809.0
+offset_bottom = 216.0
+pivot_offset = Vector2(104, 104)
+theme_override_styles/normal = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_abo5w")
+script = ExtResource("3_caqbn")
+level_data = SubResource("Resource_sop00")
+
+[node name="Picture" type="TextureRect" parent="Pages/Page0/CardButton4" unique_id=1287182602]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 200.0
+offset_bottom = 168.0
+texture = SubResource("GradientTexture2D_deolp")
+expand_mode = 1
+
+[node name="DescriptionLabel" type="Label" parent="Pages/Page0/CardButton4" unique_id=876812602]
+z_index = -1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 216.0
+offset_right = 194.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4sqb6")
+theme_override_font_sizes/font_size = 20
+text = "FRIENDS?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pages/Page0/CardButton4" unique_id=1959275184]
+libraries/ = SubResource("AnimationLibrary_hi0eo")
+
+[node name="LockIcon" type="TextureRect" parent="Pages/Page0/CardButton4" unique_id=439208332]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 196.0
+offset_bottom = 204.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_ban1t")
+
+[node name="CardButton5" type="Button" parent="Pages/Page0" unique_id=231311070]
+z_index = 1
+layout_mode = 0
+offset_left = 841.0
+offset_top = 32.0
+offset_right = 1049.0
+offset_bottom = 240.0
+pivot_offset = Vector2(104, 104)
+theme_override_styles/normal = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_abo5w")
+script = ExtResource("3_caqbn")
+level_data = SubResource("Resource_jgm7g")
+
+[node name="Picture" type="TextureRect" parent="Pages/Page0/CardButton5" unique_id=1119918963]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 200.0
+offset_bottom = 168.0
+texture = SubResource("GradientTexture2D_deolp")
+expand_mode = 1
+
+[node name="DescriptionLabel" type="Label" parent="Pages/Page0/CardButton5" unique_id=2074602596]
+z_index = -1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 216.0
+offset_right = 194.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4sqb6")
+theme_override_font_sizes/font_size = 20
+text = "HOW IS CAKE?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pages/Page0/CardButton5" unique_id=775876770]
+libraries/ = SubResource("AnimationLibrary_hi0eo")
+
+[node name="LockIcon" type="TextureRect" parent="Pages/Page0/CardButton5" unique_id=1941282511]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 196.0
+offset_bottom = 204.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_ban1t")
+
+[node name="CardButton6" type="Button" parent="Pages/Page0" unique_id=137940291]
+z_index = 1
+layout_mode = 0
+offset_left = 721.0
+offset_top = 266.0
+offset_right = 929.0
+offset_bottom = 474.0
+pivot_offset = Vector2(104, 104)
+theme_override_styles/normal = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_f218k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_abo5w")
+script = ExtResource("3_caqbn")
+level_data = SubResource("Resource_63pnd")
+
+[node name="Picture" type="TextureRect" parent="Pages/Page0/CardButton6" unique_id=256319452]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 200.0
+offset_bottom = 168.0
+texture = SubResource("GradientTexture2D_deolp")
+expand_mode = 1
+
+[node name="DescriptionLabel" type="Label" parent="Pages/Page0/CardButton6" unique_id=1969503728]
+z_index = -1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 216.0
+offset_right = 194.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4sqb6")
+theme_override_font_sizes/font_size = 20
+text = "DO IT 4 CAKE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pages/Page0/CardButton6" unique_id=1086585613]
+libraries/ = SubResource("AnimationLibrary_hi0eo")
+
+[node name="LockIcon" type="TextureRect" parent="Pages/Page0/CardButton6" unique_id=645074388]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 196.0
+offset_bottom = 204.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_ban1t")
+
 [node name="Page1" type="Control" parent="Pages" unique_id=821643191]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 608.0
@@ -459,9 +650,10 @@ bus = &"SFX"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2003337983]
 libraries/ = SubResource("AnimationLibrary_sop00")
 
-[node name="PageLabel" type="Label" parent="." unique_id=1626591604]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=47534895]
+
+[node name="PageLabel" type="Label" parent="CanvasLayer" unique_id=1626591604]
 z_index = 1
-layout_mode = 0
 offset_left = 885.0
 offset_top = 554.0
 offset_right = 1028.0
@@ -481,6 +673,7 @@ offset_bottom = 597.0
 pivot_offset = Vector2(-1, 280)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ban1t")
+metadata/_edit_lock_ = true
 
 [connection signal="level_selected" from="Pages/Page0/CardButton1" to="." method="_on_level_selected"]
 [connection signal="level_selected" from="Pages/Page0/CardButton2" to="." method="_on_level_selected"]
