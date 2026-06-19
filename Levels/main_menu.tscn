@@ -75,7 +75,7 @@ text = "1111111111"
 layout_mode = 2
 theme_override_constants/separation = 55
 
-[node name="Continue" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2063742510]
+[node name="Continue" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2045932734]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.7764706)
@@ -91,8 +91,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_hllw6")
 text = "Continue"
 alignment = 0
 script = ExtResource("4_hllw6")
+metadata/_custom_type_script = "uid://cdntbqr76ymv"
 
-[node name="New Game" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1535824841]
+[node name="New Game" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1980846770]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.7764706)
@@ -108,8 +109,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_hllw6")
 text = "New Game"
 alignment = 0
 script = ExtResource("4_hllw6")
+metadata/_custom_type_script = "uid://cdntbqr76ymv"
 
-[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=415322265]
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=52776552]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.7764706)
@@ -125,6 +127,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_hllw6")
 text = "Quit"
 alignment = 0
 script = ExtResource("4_hllw6")
+metadata/_custom_type_script = "uid://cdntbqr76ymv"
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer" unique_id=269247307]
 layout_mode = 2
@@ -139,6 +142,7 @@ offset_left = -104.0
 offset_top = -168.0
 offset_right = 2480.0
 offset_bottom = 1016.0
+mouse_filter = 2
 texture = ExtResource("2_jy27m")
 expand_mode = 1
 stretch_mode = 4

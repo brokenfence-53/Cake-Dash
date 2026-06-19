@@ -1,37 +1,51 @@
 extends CanvasLayer
+class_name SceneTransition
 
-signal transition_started
-signal transition_finished
+@onready var transition_rect: ColorRect = $TransitionRect
+@onready var audio_player : AudioStreamPlayer = $AudioPlayer
 
-var _is_transitioning : bool = false
+@export var close_sfx: AudioStream
+@export var open_sfx: AudioStream
 
-func go_to_scene(
-	scene         : PackedScene,
-	completed_key : String          = "",
-	anim_player   : AnimationPlayer = null,
-	anim_out      : String          = "",
-	anim_in       : String          = ""
-) -> void:
+const TRANSITION_DURATION: float = 0.5
 
-	if _is_transitioning:
-		return
-	_is_transitioning = true
-	transition_started.emit()
+var _material: ShaderMaterial
 
-	if not completed_key.is_empty():
-		GameData.complete_level(completed_key)
+func _ready() -> void:
+	_material = transition_rect.material as ShaderMaterial
+	_material.set_shader_parameter("_CirclePosition", Vector2(0.5, 0.5))
+	_material.set_shader_parameter("_Progress", 1.0)
+	transition_rect.visible = false
 
-	if anim_player and not anim_out.is_empty():
-		anim_player.play(anim_out)
-		await anim_player.animation_finished
-
+func change_scene(scene: PackedScene) -> void:
+	transition_rect.visible = true
+	await _close()
 	get_tree().change_scene_to_packed(scene)
+	await get_tree().process_frame  
+	await _open()
+	transition_rect.visible = false
 
-	await get_tree().process_frame
+func _close() -> void:
+	_play_sfx(close_sfx)
+	var tween := create_tween()
+	tween.tween_method(_set_progress, 0.0, 1.0, TRANSITION_DURATION)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
 
-	if anim_player and not anim_in.is_empty():
-		anim_player.play(anim_in)
-		await anim_player.animation_finished
+func _open() -> void:
+	_play_sfx(open_sfx)
+	var tween := create_tween()
+	tween.tween_method(_set_progress, 1.0, 0.0, TRANSITION_DURATION)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
 
-	_is_transitioning = false
-	transition_finished.emit()
+func _set_progress(value: float) -> void:
+	_material.set_shader_parameter("_Progress", value)
+
+func _play_sfx(stream: AudioStream) -> void:
+	if stream == null:
+		return
+	audio_player.stream = stream
+	audio_player.play()

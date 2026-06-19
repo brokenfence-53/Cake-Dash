@@ -39,19 +39,26 @@ func _on_next_pressed() -> void:
 		_play_flip_then_show(current_page + 1)
 
 func _play_flip_then_show(target_page: int) -> void:
+	_hide_all_pages()
 	anim.play("page_flip")
 	await anim.animation_finished
 	_show_page(target_page)
 
 func _play_back_then_show(target_page: int) -> void:
+	_hide_all_pages()
 	anim.play("page_back")
 	await anim.animation_finished
 	_show_page(target_page)
 
+func _hide_all_pages() -> void:
+	for page in pages.get_children():
+		page.visible = false
+
 func _on_level_selected(level: LevelData) -> void:
 	var card := _find_card_for_level(level)
 	if card and card.level_scene:
-		get_tree().change_scene_to_packed(card.level_scene)
+		# get_tree().change_scene_to_packed(card.level_scene)
+		TransitionManager.change_scene(card.level_scene)
 
 func _find_card_for_level(level: LevelData) -> PhotoCard:
 	for page in pages.get_children():
