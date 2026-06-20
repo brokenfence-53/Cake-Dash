@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://cdntbqr76ymv" path="res://scripts/UI/anim button.gd" id="4_hllw6"]
 [ext_resource type="AudioStream" uid="uid://djj0its488u0r" path="res://audio/sfx/select_sfx.wav" id="5_5qvx8"]
 [ext_resource type="Shader" uid="uid://b0xvfv52dblga" path="res://scripts/shaders/moving_texture.gdshader" id="5_qor8d"]
+[ext_resource type="Texture2D" uid="uid://wbi6ul60mt7c" path="res://sprites/PhotoAlbum/cake_dash_logo.png" id="7_6e2af"]
+[ext_resource type="Shader" uid="uid://cexuk2qm3vc40" path="res://scripts/shaders/bounce.gdshader" id="7_yw3yt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qor8d"]
 
@@ -21,6 +23,15 @@
 shader = ExtResource("5_qor8d")
 shader_parameter/scroll_speed = 0.03
 shader_parameter/scale = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1brcv"]
+shader = ExtResource("7_yw3yt")
+shader_parameter/do_abs = false
+shader_parameter/do_quantize = false
+shader_parameter/quantize_to = 1.0
+shader_parameter/sine_amplitude = Vector2(5, 5)
+shader_parameter/sine_speed = Vector2(0, 10)
+shader_parameter/sine_phase = Vector2(0, 0)
 
 [node name="Main Menu" type="Control" unique_id=115737077]
 layout_mode = 3
@@ -53,6 +64,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1986839159]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5254902)
 theme_override_constants/shadow_offset_x = 10
@@ -144,6 +156,18 @@ offset_right = 2480.0
 offset_bottom = 1016.0
 mouse_filter = 2
 texture = ExtResource("2_jy27m")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Logo" type="TextureRect" parent="Background" unique_id=1784244783]
+texture_filter = 2
+material = SubResource("ShaderMaterial_1brcv")
+offset_left = 72.0
+offset_top = 88.0
+offset_right = 933.9131
+offset_bottom = 256.0
+mouse_filter = 2
+texture = ExtResource("7_6e2af")
 expand_mode = 1
 stretch_mode = 4
 
