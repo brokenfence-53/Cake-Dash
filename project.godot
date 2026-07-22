@@ -13,7 +13,7 @@ config_version=5
 config/name="Cake Dash"
 run/main_scene="uid://cmv0d1vbomjwe"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dd8j8cyrg5adv"
 
 [audio]
 
@@ -25,6 +25,7 @@ EventBus="*uid://bqwiem2ewop3o"
 GameData="*uid://c84hku5t1b61y"
 TransitionManager="*uid://dn5klv8lv0uxh"
 CheckpointManager="*uid://ddam3obgxc3ol"
+GameManager="*uid://nhs0ey3u7o1g"
 
 [display]
 

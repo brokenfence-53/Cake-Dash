@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://mmwy3627oneo"]
 
 [ext_resource type="FontFile" uid="uid://biby56v28klek" path="res://fonts/pixel_digivolve/Pixel Digivolve.otf" id="1_vooyg"]
+[ext_resource type="Script" uid="uid://b8udwx343dq0t" path="res://scripts/UI/game_over.gd" id="1_wuij7"]
 [ext_resource type="Texture2D" uid="uid://cqbvd2otx1ll2" path="res://sprites/sidleplayer/Eepy Derp.png" id="2_wuij7"]
 [ext_resource type="Script" uid="uid://cdntbqr76ymv" path="res://scripts/UI/anim button.gd" id="3_q3jmj"]
 
@@ -144,7 +145,10 @@ _data = {
 &"intro": SubResource("Animation_wuij7")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wuij7"]
+
 [node name="GameOver" type="CanvasLayer" unique_id=557329443]
+script = ExtResource("1_wuij7")
 
 [node name="BG" type="TextureRect" parent="." unique_id=884192139]
 anchors_preset = -1
@@ -193,6 +197,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_vooyg")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wuij7")
 text = "RETRY"
 script = ExtResource("3_q3jmj")
 metadata/_custom_type_script = "uid://cdntbqr76ymv"
@@ -211,6 +216,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_vooyg")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wuij7")
 text = "BACK TO MENU"
 script = ExtResource("3_q3jmj")
 metadata/_custom_type_script = "uid://cdntbqr76ymv"
