@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@onready var CoyoteTimer : Timer = $CoyoteTimer
-@onready var JumpBufferTimer : Timer = $JumpBufferTimer
+@onready var CoyoteTimer : Timer = $Timers/CoyoteTimer
+@onready var JumpBufferTimer : Timer = $Timers/JumpBufferTimer
 @onready var AnimationSprite : Sprite2D = $PlayerSprite
-@onready var JumpSFX : AudioStreamPlayer = $JumpSFX
+@onready var JumpSFX : AudioStreamPlayer = $SFX/JumpSFX
 @onready var Anim : AnimationPlayer = $AnimationPlayer
 
 var coyote_time_activated : bool = false
