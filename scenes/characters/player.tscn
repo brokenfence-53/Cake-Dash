@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2vi7mc27numf" path="res://sprites/sidleplayer/Derp.png" id="2_76oj4"]
 [ext_resource type="AudioStream" uid="uid://78dlblu1bmo" path="res://audio/sfx/jump_sfx.wav" id="3_76oj4"]
 [ext_resource type="AudioStream" uid="uid://bac21o7mwgwks" path="res://audio/sfx/ouch_sfx.wav" id="4_dyp2m"]
+[ext_resource type="AudioStream" uid="uid://cmdnny1ve316l" path="res://audio/sfx/DashSFX.wav" id="5_atpat"]
 
 [sub_resource type="Gradient" id="Gradient_yewv4"]
 offsets = PackedFloat32Array(0, 0.70481926)
@@ -168,6 +169,13 @@ visible = false
 position = Vector2(-1, 8)
 shape = SubResource("RectangleShape2D_cxr5p")
 
+[node name="WallDetector" type="Node2D" parent="." unique_id=324472336]
+
+[node name="WallCheckFront" type="RayCast2D" parent="WallDetector" unique_id=1415862824]
+target_position = Vector2(34, 0)
+
+[node name="FallHeightTracker" type="Node" parent="." unique_id=579210217]
+
 [node name="Hitbox" type="Area2D" parent="." unique_id=1895442022]
 collision_mask = 58
 
@@ -179,9 +187,11 @@ shape = SubResource("RectangleShape2D_tdg3f")
 [node name="Timers" type="Node" parent="." unique_id=411641593]
 
 [node name="CoyoteTimer" type="Timer" parent="Timers" unique_id=1441109530]
+one_shot = true
 
 [node name="JumpBufferTimer" type="Timer" parent="Timers" unique_id=38607757]
 wait_time = 0.12
+one_shot = true
 
 [node name="SFX" type="Node" parent="." unique_id=707443114]
 
@@ -192,3 +202,25 @@ bus = &"SFX"
 [node name="HurtSFX" type="AudioStreamPlayer" parent="SFX" unique_id=1883411486]
 stream = ExtResource("4_dyp2m")
 bus = &"SFX"
+
+[node name="DashSFX" type="AudioStreamPlayer" parent="SFX" unique_id=1140621529]
+stream = ExtResource("5_atpat")
+bus = &"SFX"
+
+[node name="StateMachine" type="Node" parent="." unique_id=1479953413]
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=581199586]
+
+[node name="Run" type="Node" parent="StateMachine" unique_id=45799138]
+
+[node name="MachRun" type="Node" parent="StateMachine" unique_id=1929207712]
+
+[node name="Jump" type="Node" parent="StateMachine" unique_id=1143777970]
+
+[node name="Fall" type="Node" parent="StateMachine" unique_id=809525919]
+
+[node name="Dive" type="Node" parent="StateMachine" unique_id=1680737762]
+
+[node name="GroundPound" type="Node" parent="StateMachine" unique_id=2133936843]
+
+[node name="WallRun" type="Node" parent="StateMachine" unique_id=806570554]
