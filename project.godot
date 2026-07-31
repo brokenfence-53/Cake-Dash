@@ -26,6 +26,7 @@ GameData="*uid://c84hku5t1b61y"
 TransitionManager="*uid://dn5klv8lv0uxh"
 CheckpointManager="*uid://ddam3obgxc3ol"
 GameManager="*uid://nhs0ey3u7o1g"
+Events="*uid://veic7c55wjah"
 
 [display]
 

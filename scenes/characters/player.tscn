@@ -6,6 +6,10 @@
 [ext_resource type="Script" uid="uid://blcnts8adi41n" path="res://scripts/states/FallHeightTracker.gd" id="3_kqtwu"]
 [ext_resource type="AudioStream" uid="uid://bac21o7mwgwks" path="res://audio/sfx/ouch_sfx.wav" id="4_dyp2m"]
 [ext_resource type="AudioStream" uid="uid://cmdnny1ve316l" path="res://audio/sfx/DashSFX.wav" id="5_atpat"]
+[ext_resource type="Script" uid="uid://djx4i25qhvnn4" path="res://scripts/states/IdleState.gd" id="7_eojnx"]
+[ext_resource type="Script" uid="uid://c1y7wrbilufre" path="res://scripts/states/RunState.gd" id="8_qgnko"]
+[ext_resource type="Script" uid="uid://bfph2yv0baop6" path="res://scripts/states/MachRunState.gd" id="9_qgnko"]
+[ext_resource type="Script" uid="uid://dhrap63djl8jm" path="res://scripts/states/JumpState.gd" id="10_7vyk4"]
 
 [sub_resource type="Gradient" id="Gradient_yewv4"]
 offsets = PackedFloat32Array(0, 0.70481926)
@@ -212,13 +216,21 @@ bus = &"SFX"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1479953413]
 
-[node name="Idle" type="Node" parent="StateMachine" unique_id=581199586]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=570072182]
+script = ExtResource("7_eojnx")
+metadata/_custom_type_script = "uid://djx4i25qhvnn4"
 
-[node name="Run" type="Node" parent="StateMachine" unique_id=45799138]
+[node name="Run" type="Node" parent="StateMachine" unique_id=2032006515]
+script = ExtResource("8_qgnko")
+metadata/_custom_type_script = "uid://c1y7wrbilufre"
 
-[node name="MachRun" type="Node" parent="StateMachine" unique_id=1929207712]
+[node name="MachRun" type="Node" parent="StateMachine" unique_id=984043798]
+script = ExtResource("9_qgnko")
+metadata/_custom_type_script = "uid://bfph2yv0baop6"
 
-[node name="Jump" type="Node" parent="StateMachine" unique_id=1143777970]
+[node name="Jump" type="Node" parent="StateMachine" unique_id=1267049268]
+script = ExtResource("10_7vyk4")
+metadata/_custom_type_script = "uid://dhrap63djl8jm"
 
 [node name="Fall" type="Node" parent="StateMachine" unique_id=809525919]
 
