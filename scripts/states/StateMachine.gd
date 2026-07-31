@@ -1,5 +1,5 @@
-extends Node
 class_name StateMachine
+extends Node
 
 @export var initial_state: State
 
@@ -13,7 +13,9 @@ func _ready() -> void:
 			child.player = get_parent()
 			child.state_machine = self
 			child.transitioned.connect(transition_to)
+	# NOTE: no longer calling enter() here — see start()
 
+func start() -> void:
 	if initial_state:
 		current_state = initial_state
 		current_state.enter()

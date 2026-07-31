@@ -51,9 +51,75 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xrqxk"]
+resource_name = "dive"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_76oj4"]
 resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g66nw"]
+resource_name = "ground_pound"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -123,6 +189,33 @@ tracks/1/keys = {
 "values": []
 }
 
+[sub_resource type="Animation" id="Animation_rpnd8"]
+resource_name = "mach_run"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_kne1u"]
 resource_name = "walk"
 length = 0.9
@@ -140,13 +233,56 @@ tracks/0/keys = {
 "values": [0, 1, 2]
 }
 
+[sub_resource type="Animation" id="Animation_d6tgn"]
+resource_name = "wall_run"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5707963267948966]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e80uo"]
 _data = {
 &"RESET": SubResource("Animation_e80uo"),
+&"dive": SubResource("Animation_xrqxk"),
 &"fall": SubResource("Animation_76oj4"),
+&"ground_pound": SubResource("Animation_g66nw"),
 &"idle": SubResource("Animation_kpjcp"),
 &"jump": SubResource("Animation_yewv4"),
-&"walk": SubResource("Animation_kne1u")
+&"mach_run": SubResource("Animation_rpnd8"),
+&"walk": SubResource("Animation_kne1u"),
+&"wall_run": SubResource("Animation_d6tgn")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxr5p"]
@@ -219,8 +355,9 @@ bus = &"SFX"
 stream = ExtResource("5_atpat")
 bus = &"SFX"
 
-[node name="StateMachine" type="Node" parent="." unique_id=1207214174]
+[node name="StateMachine" type="Node" parent="." unique_id=1207214174 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_xrqxk")
+initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://c5hljx7smh2l6"
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=570072182]
