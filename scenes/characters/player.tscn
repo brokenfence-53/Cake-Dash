@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bfry6bl17sqn7" path="res://scripts/behaviors/player.gd" id="1_yewv4"]
 [ext_resource type="Texture2D" uid="uid://2vi7mc27numf" path="res://sprites/sidleplayer/Derp.png" id="2_76oj4"]
 [ext_resource type="AudioStream" uid="uid://78dlblu1bmo" path="res://audio/sfx/jump_sfx.wav" id="3_76oj4"]
+[ext_resource type="Script" uid="uid://blcnts8adi41n" path="res://scripts/states/FallHeightTracker.gd" id="3_kqtwu"]
 [ext_resource type="AudioStream" uid="uid://bac21o7mwgwks" path="res://audio/sfx/ouch_sfx.wav" id="4_dyp2m"]
 [ext_resource type="AudioStream" uid="uid://cmdnny1ve316l" path="res://audio/sfx/DashSFX.wav" id="5_atpat"]
 
@@ -174,7 +175,9 @@ shape = SubResource("RectangleShape2D_cxr5p")
 [node name="WallCheckFront" type="RayCast2D" parent="WallDetector" unique_id=1415862824]
 target_position = Vector2(34, 0)
 
-[node name="FallHeightTracker" type="Node" parent="." unique_id=579210217]
+[node name="FallHeightTracker" type="Node" parent="." unique_id=97537994]
+script = ExtResource("3_kqtwu")
+metadata/_custom_type_script = "uid://blcnts8adi41n"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1895442022]
 collision_mask = 58
