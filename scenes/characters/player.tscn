@@ -7,9 +7,14 @@
 [ext_resource type="AudioStream" uid="uid://bac21o7mwgwks" path="res://audio/sfx/ouch_sfx.wav" id="4_dyp2m"]
 [ext_resource type="AudioStream" uid="uid://cmdnny1ve316l" path="res://audio/sfx/DashSFX.wav" id="5_atpat"]
 [ext_resource type="Script" uid="uid://djx4i25qhvnn4" path="res://scripts/states/IdleState.gd" id="7_eojnx"]
+[ext_resource type="Script" uid="uid://c5hljx7smh2l6" path="res://scripts/states/StateMachine.gd" id="7_xrqxk"]
 [ext_resource type="Script" uid="uid://c1y7wrbilufre" path="res://scripts/states/RunState.gd" id="8_qgnko"]
 [ext_resource type="Script" uid="uid://bfph2yv0baop6" path="res://scripts/states/MachRunState.gd" id="9_qgnko"]
 [ext_resource type="Script" uid="uid://dhrap63djl8jm" path="res://scripts/states/JumpState.gd" id="10_7vyk4"]
+[ext_resource type="Script" uid="uid://cge5rilt0lwx6" path="res://scripts/states/FallState.gd" id="11_2l4js"]
+[ext_resource type="Script" uid="uid://dh7aj407sk727" path="res://scripts/states/DiveState.gd" id="12_jk2m4"]
+[ext_resource type="Script" uid="uid://bx8xwh3ioqg7u" path="res://scripts/states/GroundPoundState.gd" id="13_xhtjm"]
+[ext_resource type="Script" uid="uid://wcj5mxg6bqog" path="res://scripts/states/WallRunState.gd" id="14_k4v7y"]
 
 [sub_resource type="Gradient" id="Gradient_yewv4"]
 offsets = PackedFloat32Array(0, 0.70481926)
@@ -214,7 +219,9 @@ bus = &"SFX"
 stream = ExtResource("5_atpat")
 bus = &"SFX"
 
-[node name="StateMachine" type="Node" parent="." unique_id=1479953413]
+[node name="StateMachine" type="Node" parent="." unique_id=1207214174]
+script = ExtResource("7_xrqxk")
+metadata/_custom_type_script = "uid://c5hljx7smh2l6"
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=570072182]
 script = ExtResource("7_eojnx")
@@ -232,10 +239,18 @@ metadata/_custom_type_script = "uid://bfph2yv0baop6"
 script = ExtResource("10_7vyk4")
 metadata/_custom_type_script = "uid://dhrap63djl8jm"
 
-[node name="Fall" type="Node" parent="StateMachine" unique_id=809525919]
+[node name="Fall" type="Node" parent="StateMachine" unique_id=1087341283]
+script = ExtResource("11_2l4js")
+metadata/_custom_type_script = "uid://cge5rilt0lwx6"
 
-[node name="Dive" type="Node" parent="StateMachine" unique_id=1680737762]
+[node name="Dive" type="Node" parent="StateMachine" unique_id=761797389]
+script = ExtResource("12_jk2m4")
+metadata/_custom_type_script = "uid://dh7aj407sk727"
 
-[node name="GroundPound" type="Node" parent="StateMachine" unique_id=2133936843]
+[node name="GroundPound" type="Node" parent="StateMachine" unique_id=794692426]
+script = ExtResource("13_xhtjm")
+metadata/_custom_type_script = "uid://bx8xwh3ioqg7u"
 
-[node name="WallRun" type="Node" parent="StateMachine" unique_id=806570554]
+[node name="WallRun" type="Node" parent="StateMachine" unique_id=1065603659]
+script = ExtResource("14_k4v7y")
+metadata/_custom_type_script = "uid://wcj5mxg6bqog"
