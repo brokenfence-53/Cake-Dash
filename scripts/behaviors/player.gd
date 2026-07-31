@@ -10,6 +10,7 @@ class_name Player
 @onready var jump_sfx : AudioStreamPlayer = $SFX/JumpSFX
 @onready var hurt_sfx : AudioStreamPlayer = $SFX/HurtSFX
 @onready var dash_sfx : AudioStreamPlayer = $SFX/DashSFX
+@onready var land_sfx : AudioStreamPlayer = $SFX/LandSFX
 
 @onready var wall_check_front : RayCast2D = $WallDetector/WallCheckFront
 @onready var fall_height_tracker : FallHeightTracker = $FallHeightTracker

@@ -1,10 +1,16 @@
-extends State
 class_name WallRunState
+extends State
+
+var rotation_tween: Tween
 
 func enter(_previous_state_name: String = "") -> void:
 	player.velocity.x = 0.0
-	player.jumps_left = player.total_jumps # regrant jumps on wall grab
+	player.jumps_left = player.total_jumps
 	player.anim.play("wall_run")
+	_rotate_sprite_to(deg_to_rad(90.0) * -player.facing_direction)
+
+func exit() -> void:
+	_rotate_sprite_to(0.0)
 
 func physics_update(delta: float) -> void:
 	var input_dir : float = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -36,3 +42,10 @@ func _wall_jump() -> void:
 	player.jumps_left -= 1
 	player.jump_sfx.play()
 	transitioned.emit("Fall")
+
+func _rotate_sprite_to(target_rotation: float) -> void:
+	if rotation_tween:
+		rotation_tween.kill()
+	rotation_tween = player.create_tween()
+	rotation_tween.tween_property(player.player_sprite, "rotation", target_rotation, 0.15) \
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)

@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bac21o7mwgwks" path="res://audio/sfx/ouch_sfx.wav" id="4_dyp2m"]
 [ext_resource type="AudioStream" uid="uid://cmdnny1ve316l" path="res://audio/sfx/DashSFX.wav" id="5_atpat"]
 [ext_resource type="Script" uid="uid://djx4i25qhvnn4" path="res://scripts/states/IdleState.gd" id="7_eojnx"]
+[ext_resource type="AudioStream" uid="uid://vqi1lf7pysds" path="res://audio/sfx/SquishPopSFX.mp3" id="7_g66nw"]
 [ext_resource type="Script" uid="uid://c5hljx7smh2l6" path="res://scripts/states/StateMachine.gd" id="7_xrqxk"]
 [ext_resource type="Script" uid="uid://c1y7wrbilufre" path="res://scripts/states/RunState.gd" id="8_qgnko"]
 [ext_resource type="Script" uid="uid://bfph2yv0baop6" path="res://scripts/states/MachRunState.gd" id="9_qgnko"]
@@ -50,18 +51,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerSprite:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_xrqxk"]
@@ -216,9 +205,38 @@ tracks/1/keys = {
 "values": [Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_3wg1y"]
+resource_name = "squash_land"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.15, 0.26, 0.3),
+"transitions": PackedFloat32Array(1, 0.5, -2, -2, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.4, 0.6), Vector2(0.85, 1.15), Vector2(1.05, 0.95), Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_kne1u"]
 resource_name = "walk"
-length = 0.9
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -227,7 +245,7 @@ tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 0.6666667),
+"times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
@@ -259,18 +277,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerSprite:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.19999999),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.5707963267948966]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e80uo"]
 _data = {
@@ -281,6 +287,7 @@ _data = {
 &"idle": SubResource("Animation_kpjcp"),
 &"jump": SubResource("Animation_yewv4"),
 &"mach_run": SubResource("Animation_rpnd8"),
+&"squash_land": SubResource("Animation_3wg1y"),
 &"walk": SubResource("Animation_kne1u"),
 &"wall_run": SubResource("Animation_d6tgn")
 }
@@ -353,6 +360,10 @@ bus = &"SFX"
 
 [node name="DashSFX" type="AudioStreamPlayer" parent="SFX" unique_id=1140621529]
 stream = ExtResource("5_atpat")
+bus = &"SFX"
+
+[node name="LandSFX" type="AudioStreamPlayer" parent="SFX" unique_id=1240296912]
+stream = ExtResource("7_g66nw")
 bus = &"SFX"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1207214174 node_paths=PackedStringArray("initial_state")]
