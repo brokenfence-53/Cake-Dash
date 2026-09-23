@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b5vuu5etpre2v"]
+
+[ext_resource type="Texture2D" uid="uid://b1bsvmxbvcqhs" path="res://tilesets/TileSet1/Cake Dash Obstacles.png" id="1_gc48e"]
+[ext_resource type="Script" uid="uid://cwrkh5y2gelfa" path="res://scripts/behaviors/moving_blade.gd" id="1_nnetc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nnetc"]
+radius = 24.147694
+
+[sub_resource type="Animation" id="Animation_0sfg6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BladeSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yjiym"]
+resource_name = "spin"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BladeSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hnt1n"]
+_data = {
+&"RESET": SubResource("Animation_0sfg6"),
+&"spin": SubResource("Animation_yjiym")
+}
+
+[node name="MovingBlade" type="Area2D" unique_id=2120635030]
+scale = Vector2(2, 2)
+collision_layer = 16
+script = ExtResource("1_nnetc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=974408853]
+visible = false
+shape = SubResource("CircleShape2D_nnetc")
+
+[node name="BladeSprite" type="Sprite2D" parent="." unique_id=1930256480]
+texture = ExtResource("1_gc48e")
+region_enabled = true
+region_rect = Rect2(128, 16, 48, 48)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2126676310]
+libraries/ = SubResource("AnimationLibrary_hnt1n")
