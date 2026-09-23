@@ -124,6 +124,7 @@ glow_bloom = 0.05
 script = ExtResource("1_7pswh")
 
 [node name="Background" type="Parallax2D" parent="." unique_id=122255899]
+z_index = -1
 scroll_scale = Vector2(0.2, 0.2)
 scroll_offset = Vector2(210, 238)
 repeat_size = Vector2(1152, 0)
@@ -176,7 +177,9 @@ position = Vector2(302, 408)
 [node name="Candles" type="Node2D" parent="Objects" unique_id=2095384267]
 
 [node name="Candle" parent="Objects/Candles" unique_id=992938459 instance=ExtResource("9_he5fp")]
-position = Vector2(1034, 605)
+position = Vector2(1232, 605)
+
+[node name="Obstacles" type="Node2D" parent="Objects" unique_id=866601312]
 
 [node name="Player" parent="." unique_id=1809104038 instance=ExtResource("4_lquwl")]
 position = Vector2(144, 419)

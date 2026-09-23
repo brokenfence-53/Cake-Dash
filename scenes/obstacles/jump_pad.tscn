@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dc4bp5vxvjvf3"]
+
+[ext_resource type="Texture2D" uid="uid://b1bsvmxbvcqhs" path="res://tilesets/TileSet1/Cake Dash Obstacles.png" id="1_ca5gn"]
+[ext_resource type="Script" uid="uid://xa5eu2inxveh" path="res://scripts/behaviors/jump_pad.gd" id="1_ku323"]
+[ext_resource type="Shader" uid="uid://cp88vjvjy3uef" path="res://scripts/shaders/hue_shift.gdshader" id="2_6if2d"]
+[ext_resource type="AudioStream" uid="uid://5vrgme5wat7e" path="res://audio/sfx/Boing SFX.mp3" id="4_gacdg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gacdg"]
+shader = ExtResource("2_6if2d")
+shader_parameter/hue_shift = 0.0
+
+[sub_resource type="Animation" id="Animation_ku323"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6if2d"]
+resource_name = "activate"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.75), Vector2(1, 1.15), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gacdg"]
+_data = {
+&"RESET": SubResource("Animation_ku323"),
+&"activate": SubResource("Animation_6if2d")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca5gn"]
+size = Vector2(64, 34.666668)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ku323"]
+size = Vector2(48, 10)
+
+[node name="JumpPad" type="Node2D" unique_id=1271444215]
+z_index = -1
+scale = Vector2(3, 3)
+script = ExtResource("1_ku323")
+
+[node name="JelloSprite" type="Sprite2D" parent="." unique_id=866137779]
+material = SubResource("ShaderMaterial_gacdg")
+position = Vector2(0, 24)
+texture = ExtResource("1_ca5gn")
+offset = Vector2(0, -24)
+region_enabled = true
+region_rect = Rect2(56, 16, 64, 48)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=978419887]
+root_node = NodePath("../JelloSprite")
+libraries/ = SubResource("AnimationLibrary_gacdg")
+speed_scale = 1.5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1683787949]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1122435334]
+visible = false
+position = Vector2(0, 6.666667)
+shape = SubResource("RectangleShape2D_ca5gn")
+
+[node name="BounceDetector" type="Area2D" parent="." unique_id=342780685]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceDetector" unique_id=1865552117]
+visible = false
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_ku323")
+
+[node name="BounceSFX" type="AudioStreamPlayer" parent="." unique_id=1191487060]
+stream = ExtResource("4_gacdg")
+bus = &"SFX"
