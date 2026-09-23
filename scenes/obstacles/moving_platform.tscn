@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://xde27r7meack"]
+
+[ext_resource type="Script" uid="uid://cqclkejtyotw6" path="res://scripts/behaviors/moving_platform.gd" id="1_mlgjn"]
+[ext_resource type="Texture2D" uid="uid://b1bsvmxbvcqhs" path="res://tilesets/TileSet1/Cake Dash Obstacles.png" id="2_0oje4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nflk5"]
+size = Vector2(53, 9)
+
+[node name="MovingPlatform" type="AnimatableBody2D" unique_id=1138943462]
+scale = Vector2(3, 3)
+script = ExtResource("1_mlgjn")
+metadata/_custom_type_script = "uid://cqclkejtyotw6"
+
+[node name="PlateformSprite" type="Sprite2D" parent="." unique_id=2137967809]
+texture = ExtResource("2_0oje4")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1003212791]
+visible = false
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_nflk5")
+one_way_collision = true

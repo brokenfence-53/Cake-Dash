@@ -122,6 +122,15 @@ _data = {
 &"idle": SubResource("Animation_7t55w")
 }
 
+[sub_resource type="Gradient" id="Gradient_7gux2"]
+offsets = PackedFloat32Array(0, 0.5846645)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7t55w"]
+gradient = SubResource("Gradient_7gux2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Candle" type="Area2D" unique_id=992938459 groups=["candle"]]
 collision_layer = 8
 script = ExtResource("1_wxcwj")
@@ -142,5 +151,11 @@ libraries/ = SubResource("AnimationLibrary_sskkj")
 [node name="CollectSFX" type="AudioStreamPlayer" parent="." unique_id=2131410988]
 stream = ExtResource("3_7gux2")
 bus = &"SFX"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=990267974]
+color = Color(1, 0.15294118, 0.60784316, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_7t55w")
+texture_scale = 1.3
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
