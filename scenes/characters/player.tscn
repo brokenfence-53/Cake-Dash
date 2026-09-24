@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://dh7aj407sk727" path="res://scripts/states/DiveState.gd" id="12_jk2m4"]
 [ext_resource type="Script" uid="uid://bx8xwh3ioqg7u" path="res://scripts/states/GroundPoundState.gd" id="13_xhtjm"]
 [ext_resource type="Script" uid="uid://wcj5mxg6bqog" path="res://scripts/states/WallRunState.gd" id="14_k4v7y"]
+[ext_resource type="Texture2D" uid="uid://bn4hfcptvek8l" path="res://sprites/sidleplayer/Walk particle.png" id="17_rpnd8"]
 
 [sub_resource type="Gradient" id="Gradient_yewv4"]
 offsets = PackedFloat32Array(0, 0.70481926)
@@ -298,6 +299,22 @@ size = Vector2(58, 56)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdg3f"]
 size = Vector2(58, 47)
 
+[sub_resource type="Gradient" id="Gradient_d6tgn"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3wg1y"]
+gradient = SubResource("Gradient_d6tgn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g66nw"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 40.0
+gravity = Vector3(0, 100, 0)
+scale_min = 0.19999999
+scale_max = 0.59999996
+color_ramp = SubResource("GradientTexture1D_3wg1y")
+
 [node name="Player" type="CharacterBody2D" unique_id=1809104038 groups=["player"]]
 collision_mask = 63
 script = ExtResource("1_yewv4")
@@ -402,3 +419,10 @@ metadata/_custom_type_script = "uid://bx8xwh3ioqg7u"
 [node name="WallRun" type="Node" parent="StateMachine" unique_id=1065603659]
 script = ExtResource("14_k4v7y")
 metadata/_custom_type_script = "uid://wcj5mxg6bqog"
+
+[node name="WalkDust" type="GPUParticles2D" parent="." unique_id=284451078]
+position = Vector2(0, 36)
+texture = ExtResource("17_rpnd8")
+lifetime = 0.4
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_g66nw")

@@ -15,6 +15,7 @@ class_name Player
 @onready var wall_check_front : RayCast2D = $WallDetector/WallCheckFront
 @onready var fall_height_tracker : FallHeightTracker = $FallHeightTracker
 @onready var state_machine : StateMachine = $StateMachine
+@onready var walk_dust: GPUParticles2D = $WalkDust
 
 @export_group("Ground Movement")
 @export var max_speed : float = 500.0
@@ -47,6 +48,7 @@ class_name Player
 @export var wall_run_speed: float = 300.0
 @export var wall_slide_speed: float = 100.0
 @export var wall_jump_velocity: Vector2 = Vector2(400.0, -450.0)
+@export var dust_speed_threshold: float = 20.0
 
 var jumps_left: int = 0
 var facing_direction: float = 1.0
@@ -74,6 +76,8 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer.start()
+
+	walk_dust.emitting = is_on_floor() and abs(velocity.x) > dust_speed_threshold
 
 func apply_horizontal_movement(delta: float, input_dir: float, accel: float, fric: float, speed_cap: float) -> void:
 	var weight : float = delta * (accel if input_dir else fric)
