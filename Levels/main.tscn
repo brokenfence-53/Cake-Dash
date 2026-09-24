@@ -15,9 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://shyght1ova0x" path="res://scenes/interactables/Candle.tscn" id="9_he5fp"]
 [ext_resource type="Script" uid="uid://dbanutr0pqqwf" path="res://scripts/classes/ShakeCamera2D.gd" id="10_3lhg3"]
 [ext_resource type="PackedScene" uid="uid://mmwy3627oneo" path="res://scenes/menus/GameOver.tscn" id="13_5mxy1"]
-[ext_resource type="Script" uid="uid://ddlbq57gfmbgn" path="res://scripts/classes/scene_door.gd" id="16_ouevp"]
-[ext_resource type="PackedScene" uid="uid://dc4bp5vxvjvf3" path="res://scenes/obstacles/jump_pad.tscn" id="17_7bh50"]
-[ext_resource type="Texture2D" uid="uid://u0te4vliyiua" path="res://sprites/Others/magic door.png" id="17_ja5tu"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3lhg3"]
 polygon = PackedVector2Array(-8, 3, 8, 3, 8, 8, -8, 8)
@@ -278,9 +275,6 @@ sources/1 = SubResource("TileSetAtlasSource_7bh50")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3lhg3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bh50"]
-size = Vector2(112, 112)
-
 [sub_resource type="Environment" id="Environment_4c57u"]
 background_mode = 3
 tonemap_mode = 1
@@ -349,23 +343,6 @@ bus = &"SFX"
 [node name="DeathSFX" type="AudioStreamPlayer" parent="KillZone" unique_id=1005278645]
 stream = ExtResource("6_hilkn")
 bus = &"SFX"
-
-[node name="SceneDoor" type="Area2D" parent="." unique_id=1828652049]
-position = Vector2(1072, 464)
-script = ExtResource("16_ouevp")
-target_scene = ExtResource("17_7bh50")
-metadata/_custom_type_script = "uid://ddlbq57gfmbgn"
-
-[node name="Sprite2D" type="Sprite2D" parent="SceneDoor" unique_id=49106393]
-z_index = 1
-position = Vector2(0, -36)
-scale = Vector2(2, 2)
-texture = ExtResource("17_ja5tu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneDoor" unique_id=233303508]
-visible = false
-position = Vector2(0, -24)
-shape = SubResource("RectangleShape2D_7bh50")
 
 [node name="Objects" type="Node2D" parent="." unique_id=295320658]
 
